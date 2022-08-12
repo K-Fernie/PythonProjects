@@ -7,14 +7,21 @@ from A3 import northHome
 from travelAnimation import load_animation
 from PIL import Image
 
+def enter_is_terminate(x):
+    if x == 10:
+        x = 7
+    return x
+    
+
 def textInteract(subwin, txtwin, witty_response):
     subwin.addstr(witty_response)
-    txtwin.edit()
-    contents = txtwin.gather().split("??:", 1)[0]
+    txtwin.edit(enter_is_terminate)
+    contents = txtwin.gather().split("??:", 1)[1]
     s = ""
     contRes = s.join(contents).strip().lower() 
-
-    if contRes == "map": 
+    print(contRes)
+    if contRes == "map":
+        print("map") 
         with Image.open('PythonPeasantQuest\images\peasantmap.png') as img: 
             img.show()
     else: 
@@ -69,7 +76,7 @@ def peasantHome():
             curses.beep()
             close_screen = True
         if event == curses.KEY_HOME:
-            witty_response = "What do you want poor boy?? " 
+            witty_response = "What do you want poor peasant??: " 
             textInteract(sub2, tb, witty_response)
         if event == curses.KEY_DOWN:
             y += 1
