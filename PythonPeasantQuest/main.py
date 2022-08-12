@@ -1,5 +1,4 @@
 from art import *
-from PIL import Image
 import os
 from travelAnimation import load_animation
 from A4 import peasantHome
@@ -14,9 +13,6 @@ from A4 import peasantHome
 
 def main():
     
-    #TODO - add the map print image somewhere within the view code
-    # with Image.open('PythonPeasantQuest\images\peasantmap.png') as img: 
-    #     img.show()
 
     tprint("PeasCant Quest", font="epic",chr_ignore=True)
     print("GENERAL INSTRUCTIONS\n")

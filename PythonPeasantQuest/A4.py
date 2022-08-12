@@ -1,10 +1,13 @@
 import curses
 from curses import wrapper
 from curses.textpad import Textbox, rectangle
+from operator import truediv
 from turtle import st
 from A3 import northHome
 from travelAnimation import load_animation
 import os
+from PIL import Image
+import time
 
 
 def peasantHome():
@@ -19,8 +22,8 @@ def peasantHome():
 
     sub = win.subwin(10, 60, 21, 1)
     sub.border()
-    sub2 = sub.subwin(9, 59, 22, 2)
-    tb = curses.textpad.Textbox(sub2, insert_mode = False)
+    sub2 = sub.subwin(8, 58, 22, 2)
+    tb = curses.textpad.Textbox(sub2)
     win.refresh()
     
 
@@ -29,29 +32,44 @@ def peasantHome():
     item1 = [2, 15]
     win.addch(hero[0], hero[1], heroImg)
     win.addch(item1[0], item1[1], "*")
-
-    ESC = 27
     key = None;
 
+    close_screen = False
     #game logic
-    while key != ESC: 
-        win.addstr(19, 2, 'HOME SCENE')
+    while not close_screen:
+        sub2.clear()
+        sub2.refresh()
+
+        win.addstr(20, 2, 'HOME SCENE')
         win.addstr(0, 25, 'Exit North') #10 characters starting at 25 if x is between 25 - 30
         win.addch(8, 59, 'E')
         win.addch(9, 59, 'a')
         win.addch(10, 59, 's')
         win.addch(11, 59, 't')
-         
-
-
-        prev_key = key
+        
         event = win.getch()
-        key = event if event != -1 else prev_key
 
         y = hero[0]
         x = hero[1]
-        if event == curses.KEY_DOWN:
+
+        witty_response = "What do you want poor boy??: "
+        if event == curses.KEY_END: 
+            curses.beep()
+            close_screen = True
+        if event == curses.KEY_HOME: 
+            sub2.addstr(witty_response)
             tb.edit()
+            contents = tb.gather().split("??:", 1)[1]
+            s = ""
+            contRes = s.join(contents).strip().lower() 
+            if contRes == "map": 
+                with Image.open('PythonPeasantQuest\images\peasantmap.png') as img: 
+                    img.show()
+            else: 
+                witty_response = "You would like to get that wouldn't you ??:"
+                event = curses.KEY_HOME
+            #TODO - Determine certain actions based on the user input
+        if event == curses.KEY_DOWN:
             y += 1
             try:
                 if y == 19:
