@@ -1,5 +1,5 @@
 import curses
-from globalInfo import simplelInstructions
+from globalInfo import simplelInstructions, mapPath
 from curses import wrapper
 from curses.textpad import Textbox, rectangle
 from operator import truediv
@@ -26,7 +26,7 @@ def textInteract(subwin, txtwin, witty_response):
 
     if contRes == "map":
         #only show if the peasant has burninated paper (if not say "You're inventory doesn't have that biz") 
-        with Image.open('PythonPeasantQuest\images\peasantmap.png') as img: 
+        with Image.open(mapPath) as img: 
             img.show()
         witty_response = "Now that you know where you are....\nWhat do you do ??:"
         subwin.clear()

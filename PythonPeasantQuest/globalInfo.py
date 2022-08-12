@@ -19,4 +19,7 @@ simplelInstructions = "1.Type 'done' and press enter to exit text mode\n"\
             "7. Type 'inventory' for a list of your stuff\n"\
             "8. Type 'map' for your map\n"\
             "What do you do ??:"
+
+global mapPath
+mapPath = "PythonPeasantQuest\images\peasantmap.png"
           
