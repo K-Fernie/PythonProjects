@@ -1,4 +1,5 @@
 import curses
+from globalInfo import simplelInstructions
 from curses import wrapper
 from curses.textpad import Textbox, rectangle
 from operator import truediv
@@ -7,6 +8,8 @@ from A3 import northHome
 from travelAnimation import load_animation
 from PIL import Image
 
+
+
 def enter_is_terminate(x):
     if x == 10:
         x = 7
@@ -14,18 +17,42 @@ def enter_is_terminate(x):
     
 
 def textInteract(subwin, txtwin, witty_response):
+
     subwin.addstr(witty_response)
     txtwin.edit(enter_is_terminate)
     contents = txtwin.gather().split("??:", 1)[1]
     s = ""
     contRes = s.join(contents).strip().lower() 
-    print(contRes)
+
     if contRes == "map":
-        print("map") 
+        #only show if the peasant has burninated paper (if not say "You're inventory doesn't have that biz") 
         with Image.open('PythonPeasantQuest\images\peasantmap.png') as img: 
             img.show()
+        witty_response = "Now that you know where you are....\nWhat do you do ??:"
+        subwin.clear()
+        subwin.refresh()
+        textInteract(subwin, txtwin, witty_response)
+    elif contRes == "look":
+        witty_response = "You see a poor burnt cottage\nNear the cottage lies a burnt paper\nWhat do you do ??: "
+        subwin.clear()
+        subwin.refresh()
+        textInteract(subwin, txtwin, witty_response)
+    elif contRes == "help": 
+        witty_response = simplelInstructions
+        subwin.clear()
+        subwin.refresh()
+        textInteract(subwin, txtwin, witty_response)
+    elif contRes == "get paper":
+        witty_response = "You pick up the burnenated paper\nITS A MAP!!\n"\
+            "Now you won't be poor AND lost\nTo access the fragile map, type 'map'\n"\
+            "What do you do ??:"
+        subwin.clear()
+        subwin.refresh()
+        textInteract(subwin, txtwin, witty_response)
+    elif contRes == "done":
+        pass
     else: 
-        witty_response = "You would like to get that wouldn't you ??:"
+        witty_response = "You would like to get that wouldn't you ??: "
         subwin.clear()
         subwin.refresh()
         textInteract(subwin, txtwin, witty_response)
@@ -60,7 +87,7 @@ def peasantHome():
         sub2.clear()
         sub2.refresh()
 
-        win.addstr(20, 2, 'HOME SCENE')
+        win.addstr(20, 2, ' HOME SCENE ')
         win.addstr(0, 25, 'Exit North') #10 characters starting at 25 if x is between 25 - 30
         win.addch(8, 59, 'E')
         win.addch(9, 59, 'a')
@@ -76,7 +103,7 @@ def peasantHome():
             curses.beep()
             close_screen = True
         if event == curses.KEY_HOME:
-            witty_response = "What do you want poor peasant??: " 
+            witty_response = "Type 'done' to exit text mode\nWhat do you want poor peasant??: " 
             textInteract(sub2, tb, witty_response)
         if event == curses.KEY_DOWN:
             y += 1
@@ -146,8 +173,8 @@ def peasantHome():
             except:
                 pass
 
-peasantHome()
-    
+# initiating separate from main for testing purposes only
+# peasantHome()  
 
             
 
