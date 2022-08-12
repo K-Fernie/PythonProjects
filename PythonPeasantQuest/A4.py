@@ -5,10 +5,23 @@ from operator import truediv
 from turtle import st
 from A3 import northHome
 from travelAnimation import load_animation
-import os
 from PIL import Image
-import time
 
+def textInteract(subwin, txtwin, witty_response):
+    subwin.addstr(witty_response)
+    txtwin.edit()
+    contents = txtwin.gather().split("??:", 1)[0]
+    s = ""
+    contRes = s.join(contents).strip().lower() 
+
+    if contRes == "map": 
+        with Image.open('PythonPeasantQuest\images\peasantmap.png') as img: 
+            img.show()
+    else: 
+        witty_response = "You would like to get that wouldn't you ??:"
+        subwin.clear()
+        subwin.refresh()
+        textInteract(subwin, txtwin, witty_response)
 
 def peasantHome():
     #Basic logic to create a screen
@@ -52,23 +65,12 @@ def peasantHome():
         y = hero[0]
         x = hero[1]
 
-        witty_response = "What do you want poor boy??: "
         if event == curses.KEY_END: 
             curses.beep()
             close_screen = True
-        if event == curses.KEY_HOME: 
-            sub2.addstr(witty_response)
-            tb.edit()
-            contents = tb.gather().split("??:", 1)[1]
-            s = ""
-            contRes = s.join(contents).strip().lower() 
-            if contRes == "map": 
-                with Image.open('PythonPeasantQuest\images\peasantmap.png') as img: 
-                    img.show()
-            else: 
-                witty_response = "You would like to get that wouldn't you ??:"
-                event = curses.KEY_HOME
-            #TODO - Determine certain actions based on the user input
+        if event == curses.KEY_HOME:
+            witty_response = "What do you want poor boy?? " 
+            textInteract(sub2, tb, witty_response)
         if event == curses.KEY_DOWN:
             y += 1
             try:
@@ -139,4 +141,6 @@ def peasantHome():
 
 peasantHome()
     
-    
+
+            
+
