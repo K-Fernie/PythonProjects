@@ -174,7 +174,7 @@ def peasantHome():
                 pass
 
 # initiating separate from main for testing purposes only
-# peasantHome()  
+peasantHome()  
 
             
 
