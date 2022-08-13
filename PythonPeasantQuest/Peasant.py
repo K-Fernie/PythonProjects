@@ -10,3 +10,6 @@ class Peasant:
         self.stink = stink
         self.dress = dress
         self.fire = fire
+
+global dashing
+dashing = Peasant("Dashing", "Main", {}, False, False, False)

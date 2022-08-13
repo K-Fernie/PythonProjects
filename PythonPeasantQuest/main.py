@@ -2,7 +2,7 @@ from art import *
 import os
 from travelAnimation import load_animation
 from A4 import peasantHome
-from globalInfo import generalInstructions
+from globalInfo import complexInstructions
 
 #Game starts - describes character
 #HELP: when typed at any point shows certain commands
@@ -14,7 +14,7 @@ from globalInfo import generalInstructions
 def main():
 
     tprint("PeasCant Quest", font="epic",chr_ignore=True)
-    print(generalInstructions)
+    print(complexInstructions)
     
 
     startGame = input("Are you ready to begin the quest?? y/n: ")
@@ -31,11 +31,13 @@ def main():
                 "has burninated your thatched roof cottage along with all your goods and services.\n"   
                 "With nothing left to lose, you swear to get revenge on that Wingaling Dragon\n"  
                 "You must ready yourself to head east towards the mountain atop which Trogdor lives.")
+                
         mv = input("\nPress ENTER to BEGIN\n")
         if(mv.lower() != "q"):
             os.system("clear")
             load_animation("Awaaaay we goooo....")
-            peasantHome()
+            #TODO - uncomment this  code when you are ready to test, right now building out the bones
+            #peasantHome()
             
     else: 
         print("Come back again... if you are peasanty enough!!")
