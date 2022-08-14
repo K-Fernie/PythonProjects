@@ -1,11 +1,10 @@
 import curses
-from globalInfo import simplelInstructions, mapPath
+from Utilities.globalInfo import simplelInstructions, mapPath, mapResponse, burntHomeLook, dashing, jerkResponse, burnenatedPaper, gotIt, dontGotIt, objCompleteLook, screenInitTxt
 from curses import wrapper
 from curses.textpad import Textbox, rectangle
 from operator import truediv
 from turtle import st
-from A3 import northHome
-from travelAnimation import load_animation
+from Utilities.travelAnimation import load_animation
 from PIL import Image
 
 
@@ -14,8 +13,15 @@ def enter_is_terminate(x):
     if x == 10:
         x = 7
     return x
-    
 
+#TODO - test this function and make sure it works as intended 
+def subRefresh(subwin, txtwin, witty_response):
+    subwin.clear()
+    subwin.refresh()
+    textInteract(subwin, txtwin, witty_response)
+
+
+#TODO-This needs heavy testing to make sure that the validation for the map is working
 def textInteract(subwin, txtwin, witty_response):
 
     subwin.addstr(witty_response)
@@ -23,42 +29,41 @@ def textInteract(subwin, txtwin, witty_response):
     contents = txtwin.gather().split("??:", 1)[1]
     s = ""
     contRes = s.join(contents).strip().lower() 
+    dashingObj = dashing.inventory["map"]
 
     if contRes == "map":
-        #only show if the peasant has burninated paper (if not say "You're inventory doesn't have that biz") 
-        with Image.open(mapPath) as img: 
-            img.show()
-        witty_response = "Now that you know where you are....\nWhat do you do ??:"
-        subwin.clear()
-        subwin.refresh()
-        textInteract(subwin, txtwin, witty_response)
+        if not dashingObj:
+            subRefresh(subwin,txtwin,dontGotIt)
+        else:
+            subRefresh(subwin,txtwin,mapResponse)
+            #TODO - add coordinates to the mapResponse
+            with Image.open(mapPath) as img: 
+                img.show()
+
     elif contRes == "look":
-        witty_response = "You see a poor burnt cottage\nNear the cottage lies a burnt paper\nWhat do you do ??: "
-        subwin.clear()
-        subwin.refresh()
-        textInteract(subwin, txtwin, witty_response)
+        if dashingObj:
+            subRefresh(subwin,txtwin,objCompleteLook)
+        else: 
+            subRefresh(subwin,txtwin,burntHomeLook)
+
     elif contRes == "help": 
-        witty_response = simplelInstructions
-        subwin.clear()
-        subwin.refresh()
-        textInteract(subwin, txtwin, witty_response)
+        subRefresh(subwin,txtwin,simplelInstructions)
+
     elif contRes == "get paper":
-        witty_response = "You pick up the burnenated paper\nITS A MAP!!\n"\
-            "Now you won't be poor AND lost\nTo access the fragile map, type 'map'\n"\
-            "What do you do ??:"
-        subwin.clear()
-        subwin.refresh()
-        textInteract(subwin, txtwin, witty_response)
+        if not dashingObj:
+            dashing.inventory["map"] = True
+            subRefresh(subwin,txtwin,burnenatedPaper)
+        else: 
+            subRefresh(subwin, txtwin, gotIt)
+
     elif contRes == "done":
         pass
+
     else: 
-        witty_response = "You would like to get that wouldn't you ??: "
-        subwin.clear()
-        subwin.refresh()
-        textInteract(subwin, txtwin, witty_response)
+        subRefresh(subwin,txtwin,jerkResponse)
 
 def peasantHome():
-    #Basic logic to create a screen
+
     curses.initscr()
     win = curses.newwin(30, 60, 1, 1)
     win.keypad(True)
@@ -76,11 +81,12 @@ def peasantHome():
 
     heroImg = '\u265E'
     hero = [10,20]
-    item1 = [2, 15]
     win.addch(hero[0], hero[1], heroImg)
-    win.addch(item1[0], item1[1], "*")
-    key = None;
 
+    win.addch(item1[0], item1[1], "*")
+    item1 = [2, 15]
+
+    key = None
     close_screen = False
     #game logic
     while not close_screen:
@@ -103,8 +109,7 @@ def peasantHome():
             curses.beep()
             close_screen = True
         if event == curses.KEY_HOME:
-            witty_response = "Type 'done' to exit text mode\nWhat do you want poor peasant??: " 
-            textInteract(sub2, tb, witty_response)
+            textInteract(sub2, tb, screenInitTxt)
         if event == curses.KEY_DOWN:
             y += 1
             try:
@@ -124,7 +129,7 @@ def peasantHome():
                 if y==0: 
                     curses.endwin()
                     load_animation("Let's gooooo North")
-                    northHome()
+                    #northHome()
                     break
                 if y == 1 and (x >= 25 and x < 35): 
                     #TODO - call new window (Different Scene)
@@ -174,7 +179,7 @@ def peasantHome():
                 pass
 
 # initiating separate from main for testing purposes only
-peasantHome()  
+#peasantHome()  
 
             
 

@@ -1,0 +1,36 @@
+A1 - (if maskus)scare donkey/"haldo" get arrow
+    Exits: South
+A2 - (ifMuddyBoy) - hayCover
+    Exits: North,South, East
+A3 - (ifhayCover) - riches
+    Exits: North, South, East
+A4 - (if baby) - robe
+    Exits: North
+B2- (if kerrek is dead) - muddyBoy
+    Exits: South, East, West
+B3 - map
+    Exits: North, South, East West
+B4 - (You see a naked man hiding behind a tree)
+    Exits: North, East, West
+C1 - monster maskus (if pebbles)
+    Exits: South
+C2 - (learn secret word) /(if Arrow) Archery mini game - SupertimeFunbow
+    Exits: West, North, South
+C3 - pebbles
+    Exits: North, West, South, East
+C4 - (if funbow and arrow) shoot kerrek, belt/ (if belt) dashing.stink = True
+    Exits:North, East
+D3 - 
+    Exits: South, West East
+D4 - 
+    Exits: North, East, West
+E2 - 
+    Exits: South, East
+E3 - 
+    Exits: West, North, South
+E4 - 
+    Exits: North, West
+TrogdorsLair
+    Exits: NONE
+SecretSpace - 
+    Exits: East
