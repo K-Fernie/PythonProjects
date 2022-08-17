@@ -24,9 +24,9 @@ def main():
 
         mv = input("\nPress ENTER to BEGIN\n")
         if(mv.lower() != "q"):
+            
             os.system("clear")
             load_animation("Awaaaay we goooo....")
-            #TODO - uncomment this  code when you are ready to test, right now building out the bones
             gameStart('B3')
             
     else: 

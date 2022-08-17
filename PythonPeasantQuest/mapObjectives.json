@@ -29,8 +29,8 @@
       "             Donkey                                      ",
       "             |  | |                                      ",
       "                                          _____          ",
-      "                                         /stumpy\\        ",
-      "                                         |______|        ",
+      "                                         /stumpy\\_/_/   ",
+      "                                         |______|  \\ \\   ",
       "                                         /   |  \\        ",
       "                                                         ",
       "                                                         ",
@@ -140,6 +140,14 @@
     "objectives": {
       "muddyBoy": false
     },
+    "items": {
+      "muddy": {
+        "description": "dry patch of land in the midst.\nPerhaps if it rained it could be a beautiful puddle\nHopefully one day you can be a muddy boy\n",
+        "prereqs": "belt",
+        "noprereqs": "If only you could be muddy...\nalas you just stand here like a fool\nstaring at a dry patch of land\nWhat do you do ??:",
+        "get": "Jumping into the mud pit and you become the muddyest of boys.\nYou are on your way to being a true peasant.\nWhat do you do ??:"
+      }
+    },
     "exit": {
       "west": "A1",
       "east": "C1",
@@ -173,8 +181,8 @@
       "get map": false
     },
     "items": {
-      "paper": {
-        "description": "poor burnt cottage\nNear the cottage lies a burnt paper ",
+      "map": {
+        "description": "poor burnt cottage\nNear the cottage lies a burnt paper...looks like a map\n",
         "prereqs": "None",
         "get": "You pick up the burnenated paper\nITS A MAP!!\nNow you won't be poor AND lost\nTo access the fragile map, type 'map'\nWhat do you do ??:"
       }
@@ -186,26 +194,26 @@
       "west": "A3"
     },
     "map": [
-      "                     |            |                      ",
-      "                     |            |                      ",
+      "                                                         ",
+      "                                                         ",
       "                                                         ",
       "                                                         ",
       "                            ____                         ",
       "                           /    \\_                       ",
       "                          /       \\                      ",
-      "__                       ------------                  __",
+      "                         ------------                    ",
       "                         | House is |                    ",
       "                         |Burnenated|                    ",
       "                         |__________|                    ",
-      "__                     #                               __",
+      "                       #                                 ",
       "                                                         ",
       "                                                         ",
       "                                                         ",
       "                                                         ",
       "                                                         ",
       "                                                         ",
-      "                     |            |                      ",
-      "                     |            |                      "
+      "                                                         ",
+      "                                                         "
     ]
   },
   "B4": {
@@ -215,17 +223,60 @@
       "east": "C4",
       "west": "A4"
     },
-    "map": "String to represent Map"
+    "map": [
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "           ___                                           ",
+      "        _ /   \\_                                         ",
+      "       /         \\                                       ",
+      "      |_ A TREE  _|                                      ",
+      "        \\_    _/                                        ",
+      "          \\  /                                          ",
+      "           ##                                            ",
+      "           ##                                            ",
+      "           ##                                            ",
+      "           ##                                            ",
+      "           ##                                            ",
+      "                                                         ",
+      "                                                         "
+    ]
   },
   "C1": {
     "objectives": {
       "scare donkey": "maskus",
       "haldo": "none"
     },
+
     "exit": {
       "south": "A2"
     },
-    "map": "String to represent Map"
+    "map": [
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                        ___              ",
+      "                                     _ /   \\_           ",
+      "                                    /         \\         ",
+      "                                   |_ A TREE  _|         ",
+      "             _                       \\_    _/           ",
+      "            / \\                        \\  /             ",
+      "            ---                          ##              ",
+      "            | |                          ##              ",
+      "            WELL                         ##              ",
+      "                                         ##              ",
+      "                                         ##              ",
+      "                                                         ",
+      "                                                         "
+    ]
   },
   "C2": {
     "objectives": {},
@@ -234,7 +285,28 @@
       "north": "C1",
       "south": "C3"
     },
-    "map": "String to represent Map"
+    "map": [
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                       .....                             ",
+      "                      / ___ \\                            ",
+      "                     | | O | |                           ",
+      "                      \\_`_`_/                            ",
+      "                       /  \\         _      _              ",
+      "                                     \\(O.O)/              ",
+      "              .....              ##############          ",
+      "             / ___ \\              ###TABLE####           ",
+      "            | | O | |              ||      ||            ",
+      "             \\_`_`_/                                     ",
+      "               /  \\                                      ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         "
+    ]
   },
   "C3": {
     "objectives": {},
@@ -244,7 +316,35 @@
       "east": "D3",
       "west": "B3"
     },
-    "map": "String to represent Map"
+    "items": {
+      "pebbles": {
+        "description": "fairly basic lake, it's glistening but you've seen better\n Near the lake is a smattering of pebbles\n",
+        "prereqs": "None",
+        "get": "Well how do ya do, got ya some pebs\nYou may be homeless but with a pocket full of pebs...\nYou are still pretty vengeful\nWhat do you do ??:"
+      }
+    },
+    "map": [
+      "                                              / ---  -   ",
+      "                                             /   - ---   ",
+      "                                ____________/ - -     -  ",
+      "                               / ---    - - -       -    ",
+      "                        ______/   -   ----     - -       ",
+      "             ___________| ---------    - - -      -      ",
+      "            /  -      - - - -     - -   -----   - - --   ",
+      "            | - -    ----      - -         -   -    -    ",
+      "            | -    ---     -       - -      - - -    -   ",
+      "         . .| ----    -  -     -  - -      - -- - -   -  ",
+      "       .  ..|  --- -  -        -      -      -           ",
+      "         .  |          -------     -    -         -    - ",
+      "            |    -         -      -  -     -       -  -  ",
+      "             |  -    -     -     -    -     -    -    -  ",
+      "              |   OH LOOK   A LAKE -     -      --   -   ",
+      "               |_________________________________________",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         "
+    ]
   },
   "C4": {
     "objectives": {},
@@ -261,7 +361,28 @@
       "east": "E3",
       "west": "C3"
     },
-    "map": "String to represent Map"
+    "map": [
+      " ------   - -    --   --    - -    -    \\                ",
+      " ---   - - -    - -    - -   -    -      \\               ",
+      "  ---   - - -    - -- - ---    - -    - - \\              ",
+      "  - - -   ---    - - -    - - -    - -     \\             ",
+      " --- -    - -- -     - - -- -    - - -     -\\            ",
+      " ---    - MORE LAKE BIZ ---      - -     -  |            ",
+      "   -     - --     - --     - -    - - -     |            ",
+      "   -  ---  -    -___   - -     -       --   |            ",
+      "   - -     -   O/   `. --   -   --   _______|            ",
+      "   -   --    \\____/  -`.--  -   -   /                    ",
+      "   -   -  --- Boat-   - ---   -    |                     ",
+      "    - -     -   - --    __________/                      ",
+      "----    -   -   -   -  /                                 ",
+      " -- --     -   ---  - /                                  ",
+      "   - - --    -    -  |                                   ",
+      "   -   - --     -   |                                    ",
+      "___________________|                                     ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         "
+    ]
   },
   "D4": {
     "objectives": {},
@@ -270,7 +391,30 @@
       "east": "E4",
       "west": "C4"
     },
-    "map": "String to represent Map"
+    "map": [
+      "*********************************************************",
+      "*********************************************************",
+      "*********************************************************",
+      "*********************************************************",
+      "*********************************************************",
+      "*********************************************************",
+      "*********************************************************",
+      "*********************************************************",
+      "*********************************************************",
+      "*********************************************************",
+      "                          __                             ",
+      "                         / \\                            ",
+      "                        /   \\                           ",
+      "                       /     \\                          ",
+      "            BUSH      /       \\     BUSH                ",
+      "                     ------------                        ",
+      "                     | Ye House |                        ",
+      "                     |    ##    |                        ",
+      "                     |____##____|                        ",
+      "        BUSH                              BUSH           ",
+      "*********************************************************",
+      "*********************************************************"
+    ]
   },
   "E2": {
     "objectives": {},
@@ -298,11 +442,32 @@
     "map": "String to represent Map"
   },
   "Trog_lair": {
-    "objectives": {},
+    "objectives": [],
     "exit": {
       "west": "none"
     },
-    "map": "String to represent Map"
+    "map": [
+      "*********************************************************",
+      "                        /,                    .:::::    ",
+      "            \\),          \\`-._                 :::888    ",
+      "            /\\            \\   `-.             ::88888    ",
+      "           /  \\            | .(                ::88      ",
+      "          /,.  \\           ; ( `              .:8888     ",
+      "             ), \\         / ;``               :::888     ",
+      "            /_   \\     __/_(_                  :88       ",
+      "              `. ,`..-'      `-._    \\  /      :8        ",
+      "                )__ `.           `._ .\\/.                ",
+      "               /   `. `             `-._______m         _",
+      "   ,-=====-.-;'                 ,  ___________/ _,-_,'\"`/",
+      " C   =--   ;                   `.`._    V V V       -=-'\"",
+      " :,  \\     ,|      UuUu _,......__   `-.__A_A_ -. ._ ,--.",
+      " ||  |`---' :    uUuUu,'          `'--...____/   `\" `\".  ",
+      " |`  :       \\   UuUu:                                   ",
+      " :  /         \\   UuUu`-._                               ",
+      "  \\(_          `._  uUuUu `-.                            ",
+      "  (_3             `._  uUu   `._                         ",
+      "                    ``-._      `.                         "
+    ]
   },
   "Trogdor": {
     "image": ""

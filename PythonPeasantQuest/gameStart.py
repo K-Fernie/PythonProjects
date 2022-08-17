@@ -31,13 +31,23 @@ def lookItem(subwin,txtwin, location):
         subRefresh(subwin,txtwin,objCompleteLook,location)
 
 def getItem(subwin,txtwin,location,item):
-    if item in mapObjectives[location]["items"] and item not in dashing.inventory:
-        response = mapObjectives[location]["items"][item]["get"]
+    itemObj = mapObjectives[location]["items"]
+
+    if item in itemObj and item not in dashing.inventory:
+        prereqs = itemObj[item]["prereqs"]
+        if (prereqs != "None" and prereqs in dashing.inventory) or (prereqs == "None"):
+            response = itemObj[item]["get"]
+            del itemObj[item]
+            dashing.inventory.append(item)
+        else: 
+            response = itemObj[item]["noprereqs"]
         subRefresh(subwin,txtwin,response,location)
-        dashing.inventory.append(item)
     else: 
         response = "You can't get that, What do you do ??:"
-        subRefresh(subwin,txtwin,item,location)
+        subRefresh(subwin,txtwin,response,location)
+
+def talkNPC(subwin,txtwin,location):
+    pass
 
 
 def subRefresh(subwin, txtwin, witty_response, location):
@@ -53,17 +63,19 @@ def textInteract(subwin, txtwin, witty_response, location):
     contents = txtwin.gather().split("??:", 1)[1]
     s = ""
     contRes = s.join(contents).strip().lower()
-    print(contRes) 
     
 
-    if "map" in contRes:
+    if contRes == "map":
         if "map" in dashing.inventory:
             with Image.open(getMap(location)) as img: 
                 img.show()
             subRefresh(subwin,txtwin,mapResponse,location)
         else:
             subRefresh(subwin,txtwin,dontGotIt,location)
-            
+    elif contRes == "inventory":
+        inv = f"Inventory: {dashing.inventory}\nWhat do you do ??: "
+        subRefresh(subwin,txtwin,inv,location)
+
     elif "look" in contRes:
         lookItem(subwin,txtwin, location)
 
@@ -73,12 +85,7 @@ def textInteract(subwin, txtwin, witty_response, location):
     elif contRes == "help": 
         subRefresh(subwin,txtwin,instructions["simpleInstructions"], location)
 
-    # elif contRes == "get paper":
-    #     if "map" not in dashing.inventory:
-    #         dashing.inventory.append("map")
-    #         subRefresh(subwin,txtwin,burnenatedPaper, location)
-    #     else: 
-    #         subRefresh(subwin, txtwin, gotIt, location)
+   
 
     elif contRes == "done":
         pass
@@ -114,7 +121,7 @@ def gameStart(screen):
         
 
     heroImg = '\u265E'
-    hero = [10,20]
+    hero = [15,5]
     win.addch(hero[0], hero[1], heroImg)
 
     close_screen = False
@@ -248,7 +255,7 @@ def gameStart(screen):
 
 
 # initiating separate from main for testing purposes only
-gameStart("A1") 
+gameStart("B3") 
 
             
 
