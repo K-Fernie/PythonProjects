@@ -4,11 +4,42 @@
       "scare donkey": false,
       "say haldo": false
     },
-    "items": ["Monster Maskus", "Broken Arrow"],
+    "items": {
+      "monster maskus": {
+        "description": "scary shriveled looking monster maskus",
+        "prereqs": "pebbles",
+        "get": "You put your pebbles in the old bucket and turn the crank, up comes a monster maskus\nYou now have the maskus, what do you do ??: "
+      },
+      "broken arrow": {
+        "description": "broken arrow slightly shoved into a tree",
+        "prereqs": "None"
+      }
+    },
     "exit": {
       "south": "A2"
     },
-    "map": "String to represent Map"
+    "map": [
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                  ^^                                     ",
+      "                 ####                                    ",
+      "             ######                                      ",
+      "             Donkey                                      ",
+      "             |  | |                                      ",
+      "                                          _____          ",
+      "                                         /stumpy\\        ",
+      "                                         |______|        ",
+      "                                         /   |  \\        ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         "
+    ]
   },
   "A2": {
     "objectives": {
@@ -19,7 +50,28 @@
       "south": "A3",
       "east": "B2"
     },
-    "map": "String to represent Map"
+    "map": [
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "        ___                                              ",
+      "     _ /   \\_                                            ",
+      "    /         \\                                          ",
+      "   |_ A TREE  _|                                         ",
+      "     \\_    __/                                           ",
+      "       \\  /                                              ",
+      "        ##                                               ",
+      "        ##                                               ",
+      "        ##                                               ",
+      "        ##                            ###                ",
+      "        ##                           #####               ",
+      "                                   ##HAY####             ",
+      "                                 ############ #          ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         "
+    ]
   },
   "A3": {
     "objectives": {
@@ -30,7 +82,28 @@
       "south": "A4",
       "east": "B3"
     },
-    "map": "String to represent Map"
+    "map": [
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                             CAVE                        ",
+      "                           #########                    ",
+      "                        ######^^######                   ",
+      "                       #######^^#######                  ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         "
+    ]
   },
   "A4": {
     "objectives": {
@@ -40,7 +113,28 @@
     "exit": {
       "north": "A3"
     },
-    "map": "String to represent Map"
+    "map": [
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                   _                                     ",
+      "                  / \\                                    ",
+      "                 /   \\                                   ",
+      "                /     \\                                  ",
+      "               /       \\                                 ",
+      "              ------------                               ",
+      "              | Ye Olde  |                               ",
+      "              |Cottage   |                               ",
+      "              |_________#|                               ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         "
+    ]
   },
   "B2": {
     "objectives": {
@@ -75,9 +169,15 @@
     ]
   },
   "B3": {
-    "objectives": {},
-    "item": {
-      "map": [23, 11]
+    "objectives": {
+      "get map": false
+    },
+    "items": {
+      "paper": {
+        "description": "poor burnt cottage\nNear the cottage lies a burnt paper ",
+        "prereqs": "None",
+        "get": "You pick up the burnenated paper\nITS A MAP!!\nNow you won't be poor AND lost\nTo access the fragile map, type 'map'\nWhat do you do ??:"
+      }
     },
     "exit": {
       "north": "B2",
@@ -89,10 +189,10 @@
       "                     |            |                      ",
       "                     |            |                      ",
       "                                                         ",
-      "                             / \\                        ",
-      "                            /   \\                       ",
-      "                           /     \\                      ",
-      "                          /       \\                     ",
+      "                                                         ",
+      "                            ____                         ",
+      "                           /    \\_                       ",
+      "                          /       \\                      ",
       "__                       ------------                  __",
       "                         | House is |                    ",
       "                         |Burnenated|                    ",

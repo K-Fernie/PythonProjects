@@ -89,26 +89,26 @@ burnenatedPaper = "You pick up the burnenated paper\nITS A MAP!!\n"\
             "What do you do ??:"
 
 #Character Information
-objInv = {
-    "map":False,
-    "pebbles":False,
-    "monsterMaskus":False,
-    "arrow": False,
-    "kerrekBelt": False, 
-    "trinket": False, 
-    "superTimeFunBow":False, 
-    "muddyBoy":False, 
-    "chickenFeed": False, 
-    "hayCover": False, 
-    "riches": False, 
-    "baby": False, 
-    "nakedManRobe": False, 
-    "greaseHead": False, 
-    "deadKerrek": False
-}
+# objInv = {
+#     "map":False,
+#     "pebbles":False,
+#     "monsterMaskus":False,
+#     "arrow": False,
+#     "kerrekBelt": False, 
+#     "trinket": False, 
+#     "superTimeFunBow":False, 
+#     "muddyBoy":False, 
+#     "chickenFeed": False, 
+#     "hayCover": False, 
+#     "riches": False, 
+#     "baby": False, 
+#     "nakedManRobe": False, 
+#     "greaseHead": False, 
+#     "deadKerrek": False
+# 
 
 global dashing
-dashing = Peasant("Dashing", "Main", objInv, False, False, False)
+dashing = Peasant("Dashing", "B3", [], False, False, False)
 
 global mapObjectives
 with open('PythonPeasantQuest\mapObjectives.json', 'r') as objectiveFile:

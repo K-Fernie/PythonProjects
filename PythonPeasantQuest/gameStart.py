@@ -1,59 +1,84 @@
 import curses
+from re import sub
 from globalInfo import getMap, mapObjectives, instructions, mapResponse, burntHomeLook, dashing, jerkResponse, burnenatedPaper, gotIt, dontGotIt, objCompleteLook, screenInitTxt
 from curses import wrapper
 from curses.textpad import Textbox, rectangle
-from operator import truediv
+from operator import contains, truediv
 from turtle import st
 from travelAnimation import load_animation
 from PIL import Image
-
-
 
 def enter_is_terminate(x):
     if x == 10:
         x = 7
     return x
 
-#TODO - test this function and make sure it works as intended 
+def lookItem(subwin,txtwin, location):
+    itemCount = 0
+    itemKey = mapObjectives[location]["items"]
+    printstring = ""
+    if itemKey:
+        for item in itemKey:
+            description = itemKey[item]["description"]
+            if itemCount == 0:
+                printstring+=f"You look and see a {description}"
+                itemCount += 1
+            else: 
+                printstring+=f" and a {description}\n"
+        printstring += "What do you do ??:"
+        subRefresh(subwin,txtwin,printstring,location)
+    else: 
+        subRefresh(subwin,txtwin,objCompleteLook,location)
+
+def getItem(subwin,txtwin,location,item):
+    if item in mapObjectives[location]["items"] and item not in dashing.inventory:
+        response = mapObjectives[location]["items"][item]["get"]
+        subRefresh(subwin,txtwin,response,location)
+        dashing.inventory.append(item)
+    else: 
+        response = "You can't get that, What do you do ??:"
+        subRefresh(subwin,txtwin,item,location)
+
+
 def subRefresh(subwin, txtwin, witty_response, location):
     subwin.clear()
     subwin.refresh()
     textInteract(subwin, txtwin, witty_response, location)
 
 
-#TODO-This needs heavy testing to make sure that the validation for the map is working
 def textInteract(subwin, txtwin, witty_response, location):
 
     subwin.addstr(witty_response)
     txtwin.edit(enter_is_terminate)
     contents = txtwin.gather().split("??:", 1)[1]
     s = ""
-    contRes = s.join(contents).strip().lower() 
-    dashingObj = dashing.inventory["map"]
+    contRes = s.join(contents).strip().lower()
+    print(contRes) 
+    
 
     if "map" in contRes:
-        if not dashingObj:
-            subRefresh(subwin,txtwin,dontGotIt)
-        else:
+        if "map" in dashing.inventory:
             with Image.open(getMap(location)) as img: 
                 img.show()
             subRefresh(subwin,txtwin,mapResponse,location)
+        else:
+            subRefresh(subwin,txtwin,dontGotIt,location)
             
-    elif contRes == "look":
-        if dashingObj:
-            subRefresh(subwin,txtwin,objCompleteLook, location)
-        else: 
-            subRefresh(subwin,txtwin,burntHomeLook, location)
+    elif "look" in contRes:
+        lookItem(subwin,txtwin, location)
+
+    elif "get" in contRes:
+        getItem(subwin,txtwin,location,contRes[4:])
 
     elif contRes == "help": 
         subRefresh(subwin,txtwin,instructions["simpleInstructions"], location)
 
-    elif contRes == "get paper":
-        if not dashingObj:
-            dashing.inventory["map"] = True
-            subRefresh(subwin,txtwin,burnenatedPaper, location)
-        else: 
-            subRefresh(subwin, txtwin, gotIt, location)
+    # elif contRes == "get paper":
+    #     if "map" not in dashing.inventory:
+    #         dashing.inventory.append("map")
+    #         subRefresh(subwin,txtwin,burnenatedPaper, location)
+    #     else: 
+    #         subRefresh(subwin, txtwin, gotIt, location)
 
     elif contRes == "done":
         pass
@@ -84,7 +109,7 @@ def gameStart(screen):
     for i in range(1,20):
         win.addstr(i,1,mapObjectives[screen]["map"][i])
         for j in range(len(mapObjectives[screen]["map"][i])): 
-            if mapObjectives[screen]["map"][i][j] is not " ":
+            if mapObjectives[screen]["map"][i][j] != " ":
                 obsList.append([i,j+1])
         
 
@@ -192,7 +217,7 @@ def gameStart(screen):
                     win.addch(hero[0], hero[1], " ")
                     hero[1] = x
                     win.addch(hero[0], hero[1], heroImg)
-                elif [y,x] in obsList:
+                elif x == 1 or [y,x] in obsList:
                     pass
                 else: 
                     win.addch(hero[0], hero[1], " ")
@@ -221,10 +246,9 @@ def gameStart(screen):
             except:
                 pass
 
-#Check that there isn't a character at a certain position, if there is then you can move the character, if not no go
 
 # initiating separate from main for testing purposes only
-gameStart("B3") 
+gameStart("A1") 
 
             
 
