@@ -255,7 +255,7 @@ def gameStart(screen):
 
 
 # initiating separate from main for testing purposes only
-gameStart("B3") 
+gameStart("Dead") 
 
             
 
