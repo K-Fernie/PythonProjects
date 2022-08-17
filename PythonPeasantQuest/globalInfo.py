@@ -1,20 +1,21 @@
-from Model.Peasant import Peasant
+import json
+from Peasant import Peasant
 
-#INTRO TEXT THAT WILL BE PRINTED FOR THE USER
-global complexInstructions
-complexInstructions = "1.You will do many things in text mode press the 'home' key to enter text mode\n"\
+
+global instructions 
+instructions = {
+    "complexInstructions" : "1.You will do many things in text mode press the 'home' key to enter text mode\n"\
             "2.Type 'done' and press enter to exit text mode\n"\
             "3 Use the arrow keys to move around\n"\
             "4 If you get lost you can always type 'help'\n"\
             "5. When entering an area type 'look' for some informations\n"\
             "6. To get an item type 'get <item>'\n"\
             "7. To use an item type 'use <item>'\n"\
-            "8. Type 'inventory' for a list of your stuff\n"\
+            "8. Type 'inv' for a list of your stuff\n"\
             "9. If you are lost type 'map' just for a simple .jpeg (this isn't ubisoft games!)\n"\
-            "10. Don't get BuRnEnAtEd"
-
-global simpleInstructions
-simplelInstructions = "1.Type 'done' and press enter to exit text mode\n"\
+            "10. Don't get BuRnEnAtEd",
+    
+    "simpleInstructions" : "1.Type 'done' and press enter to exit text mode\n"\
             "3. If you get lost you can always type 'help'\n"\
             "4. When entering an area type 'look' for some informations"\
             "5. To get an item type 'get <item>'\n"\
@@ -22,9 +23,13 @@ simplelInstructions = "1.Type 'done' and press enter to exit text mode\n"\
             "7. Type 'inventory' for a list of your stuff\n"\
             "8. Type 'map' for your map\n"\
             "What do you do ??:"
+}
+#INTRO TEXT THAT WILL BE PRINTED FOR THE USER  
 
-global mapPath
-mapPath = "PythonPeasantQuest\images\peasantmap.png"
+global getMap
+def getMap(mapLocation):
+    return f'PythonPeasantQuest\images\{mapLocation}.png'
+
 
 global introText
 introText = "\nYou are Rather Dashing, a humble peasant living in the peasant kingdom of Peasantry\n" \
@@ -104,4 +109,8 @@ objInv = {
 
 global dashing
 dashing = Peasant("Dashing", "Main", objInv, False, False, False)
+
+global mapObjectives
+with open('PythonPeasantQuest\mapObjectives.json', 'r') as objectiveFile:
+    mapObjectives = json.load(objectiveFile)
           

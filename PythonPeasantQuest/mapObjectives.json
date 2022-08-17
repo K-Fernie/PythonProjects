@@ -1,0 +1,210 @@
+{
+  "A1": {
+    "objectives": {
+      "scare donkey": false,
+      "say haldo": false
+    },
+    "items": ["Monster Maskus", "Broken Arrow"],
+    "exit": {
+      "south": "A2"
+    },
+    "map": "String to represent Map"
+  },
+  "A2": {
+    "objectives": {
+      "hayCover": "muddyBoy"
+    },
+    "exit": {
+      "north": "A1",
+      "south": "A3",
+      "east": "B2"
+    },
+    "map": "String to represent Map"
+  },
+  "A3": {
+    "objectives": {
+      "riches": "hayCover"
+    },
+    "exit": {
+      "north": "A2",
+      "south": "A4",
+      "east": "B3"
+    },
+    "map": "String to represent Map"
+  },
+  "A4": {
+    "objectives": {
+      "moveRock": "None",
+      "deployBaby": "baby"
+    },
+    "exit": {
+      "north": "A3"
+    },
+    "map": "String to represent Map"
+  },
+  "B2": {
+    "objectives": {
+      "muddyBoy": false
+    },
+    "exit": {
+      "west": "A1",
+      "east": "C1",
+      "south": "B3"
+    },
+    "map": [
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                        /^^^^^^^\\                        ",
+      "                      /###########\\                      ",
+      "                     |#############\\                     ",
+      "                    |##DRY GROUND##|                     ",
+      "                     |#############/                     ",
+      "                      \\##########/                       ",
+      "                       ----------                        ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         "
+    ]
+  },
+  "B3": {
+    "objectives": {},
+    "item": {
+      "map": [23, 11]
+    },
+    "exit": {
+      "north": "B2",
+      "south": "B4",
+      "east": "C3",
+      "west": "A3"
+    },
+    "map": [
+      "                     |            |                      ",
+      "                     |            |                      ",
+      "                                                         ",
+      "                             / \\                        ",
+      "                            /   \\                       ",
+      "                           /     \\                      ",
+      "                          /       \\                     ",
+      "__                       ------------                  __",
+      "                         | House is |                    ",
+      "                         |Burnenated|                    ",
+      "                         |__________|                    ",
+      "__                     #                               __",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                     |            |                      ",
+      "                     |            |                      "
+    ]
+  },
+  "B4": {
+    "objectives": {},
+    "exit": {
+      "north": "B3",
+      "east": "C4",
+      "west": "A4"
+    },
+    "map": "String to represent Map"
+  },
+  "C1": {
+    "objectives": {
+      "scare donkey": "maskus",
+      "haldo": "none"
+    },
+    "exit": {
+      "south": "A2"
+    },
+    "map": "String to represent Map"
+  },
+  "C2": {
+    "objectives": {},
+    "exit": {
+      "west": "B2",
+      "north": "C1",
+      "south": "C3"
+    },
+    "map": "String to represent Map"
+  },
+  "C3": {
+    "objectives": {},
+    "exit": {
+      "north": "C2",
+      "south": "C4",
+      "east": "D3",
+      "west": "B3"
+    },
+    "map": "String to represent Map"
+  },
+  "C4": {
+    "objectives": {},
+    "exit": {
+      "north": "C3",
+      "east": "D4"
+    },
+    "map": "String to represent Map"
+  },
+  "D3": {
+    "objectives": {},
+    "exit": {
+      "south": "D4",
+      "east": "E3",
+      "west": "C3"
+    },
+    "map": "String to represent Map"
+  },
+  "D4": {
+    "objectives": {},
+    "exit": {
+      "north": "D3",
+      "east": "E4",
+      "west": "C4"
+    },
+    "map": "String to represent Map"
+  },
+  "E2": {
+    "objectives": {},
+    "exit": {
+      "south": "E3",
+      "east": "TrogdorsLair"
+    },
+    "map": "String to represent Map"
+  },
+  "E3": {
+    "objectives": {},
+    "exit": {
+      "west": "D3",
+      "north": "E2",
+      "south": "E4"
+    },
+    "map": "String to represent Map"
+  },
+  "E4": {
+    "objectives": {},
+    "exit": {
+      "north": "E3",
+      "west": "D4"
+    },
+    "map": "String to represent Map"
+  },
+  "Trog_lair": {
+    "objectives": {},
+    "exit": {
+      "west": "none"
+    },
+    "map": "String to represent Map"
+  },
+  "Trogdor": {
+    "image": ""
+  }
+}

@@ -4,7 +4,7 @@ import os
 
 
 def load_animation(strAnimate):
-    
+    os.system("clear")
     #Reference from Geeks for Geeks
     load_str = strAnimate
     ls_len = len(load_str)

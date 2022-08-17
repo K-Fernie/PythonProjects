@@ -1,19 +1,18 @@
 from art import *
 import os
-from Utilities.travelAnimation import load_animation
-from Views.B3 import peasantHome
-from Utilities.globalInfo import complexInstructions, introText
+from travelAnimation import load_animation
+from gameStart import gameStart
+from globalInfo import instructions, introText
 
 
 def main():
 
     #initial introduction to PeasCant Quest
     tprint("PeasCant Quest", font="epic",chr_ignore=True)
-    print(complexInstructions)
+    print(instructions["complexInstructions"])
 
     startGame = input("Are you ready to begin the quest?? y/n: ")
 
-    #TODO - Grab game information from CSV file and determine if they want to load save information 
     if startGame.lower() == "y":
         os.system("clear")
         load_animation("Booting sad peasantry....")
@@ -28,7 +27,7 @@ def main():
             os.system("clear")
             load_animation("Awaaaay we goooo....")
             #TODO - uncomment this  code when you are ready to test, right now building out the bones
-            #peasantHome()
+            gameStart('B3')
             
     else: 
         print("Come back again... if you are peasanty enough!!")
