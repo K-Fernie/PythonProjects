@@ -8,7 +8,7 @@ from globalInfo import instructions, introText
 def main():
 
     #initial introduction to PeasCant Quest
-    tprint("PeasCant Quest", font="epic",chr_ignore=True)
+    tprint("Let's Quest", font="epic",chr_ignore=True)
     print(instructions["complexInstructions"])
 
     startGame = input("Are you ready to begin the quest?? y/n: ")
@@ -24,7 +24,7 @@ def main():
 
         mv = input("\nPress ENTER to BEGIN\n")
         if(mv.lower() != "q"):
-            
+
             os.system("clear")
             load_animation("Awaaaay we goooo....")
             gameStart('B3')

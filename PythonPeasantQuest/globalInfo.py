@@ -15,13 +15,11 @@ instructions = {
             "9. If you are lost type 'map' just for a simple .jpeg (this isn't ubisoft games!)\n"\
             "10. Don't get BuRnEnAtEd",
     
-    "simpleInstructions" : "1.Type 'done' and press enter to exit text mode\n"\
-            "3. If you get lost you can always type 'help'\n"\
-            "4. When entering an area type 'look' for some informations"\
-            "5. To get an item type 'get <item>'\n"\
-            "6. To use an item type 'use <item>'\n"\
-            "7. Type 'inventory' for a list of your stuff\n"\
-            "8. Type 'map' for your map\n"\
+    "simpleInstructions" : "1. You need to DRESS, STINK, and be on FIRE like a peasant"\
+            "2. When entering an area type 'look' for some informations"\
+            "3. To get an item type 'get <item>'\n"\
+            "4. Type 'inventory' for a list of your stuff\n"\
+            "5. Type 'map' for your map\n"\
             "What do you do ??:"
 }
 #INTRO TEXT THAT WILL BE PRINTED FOR THE USER  

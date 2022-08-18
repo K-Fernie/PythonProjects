@@ -1,18 +1,11 @@
 {
   "A1": {
-    "objectives": {
-      "scare donkey": false,
-      "say haldo": false
-    },
     "items": {
-      "monster maskus": {
-        "description": "scary shriveled looking monster maskus",
-        "prereqs": "pebbles",
-        "get": "You put your pebbles in the old bucket and turn the crank, up comes a monster maskus\nYou now have the maskus, what do you do ??: "
-      },
-      "broken arrow": {
-        "description": "broken arrow slightly shoved into a tree",
-        "prereqs": "None"
+      "arrow": {
+        "description": "a broken arrow slightly shoved into a tree\nYou could probably wiggle it out",
+        "prereqs": "maskus",
+        "noprereqs": "The donkey huffs at you\nYou see its demon eyes glow red\nBetter not steal it's favorite broken arrow",
+        "get": "The donkey is too spookified by your maskus\nIt allows you to steal its most favorite arrow, while cowering in fear\nNow you are partially sorta armed for battle\nWhat do you do ??:"
       }
     },
     "exit": {
@@ -42,8 +35,13 @@
     ]
   },
   "A2": {
-    "objectives": {
-      "hayCover": "muddyBoy"
+    "items": {
+      "hay": {
+        "description": "a lonely tree and a nice floofy pile of hay\nYou loved to jump in those floofs as a kid\n",
+        "prereqs": "muddy",
+        "noprereqs": "You jump in the hay, it's worse than you remember\nMay be nicer if there was mud to buffer the itch\nWhat do you do ??:",
+        "get": "You gloop into the hay, it's as nice as you remember\nYou are now an unrecognizable spook hay horror\nWhat do you do ??:"
+      }
     },
     "exit": {
       "north": "A1",
@@ -74,8 +72,18 @@
     ]
   },
   "A3": {
-    "objectives": {
-      "riches": "hayCover"
+    "items": {
+      "riches": {
+        "description": "outside the Johnkas house is a nice pile of riches\nThe Johnka is snoring inside...deep asleep\n",
+        "prereqs": "hay",
+        "noprereqs": "I mean you would probably get caught instantly\nAfter you get caught you would be big dead\nBetter let sleeping riches lie\nWhat do you do ??:",
+        "get": "As a hay covered assassin you snatch the riches\nA Big gust of wind whooshes the hay clean off\nJohnka snaps awake and comes outside\n'Did you steal my riches' ??:",
+        "dead": {
+          "big_dead": "The Johnka, real tired grumps just chops your head clean off!\nI mean now you are for sure big dead\n",
+          "small_dead": "The Johnka shrugs and walks inside\nYou are the king of lies\nONWARD\nWhat do you do ??:",
+          "screen": "Dead_Screen"
+        }
+      }
     },
     "exit": {
       "north": "A2",
@@ -106,9 +114,13 @@
     ]
   },
   "A4": {
-    "objectives": {
-      "moveRock": "None",
-      "deployBaby": "baby"
+    "items": {
+      "robe": {
+        "description": "an olde cottage, like the ones from snow white\nThis cottage has no door, but there is a small hole\nYou peep inside like a stealth peeker\nYou see a sweet peasant robe, sure can't get it tho\nIf only you were still a baby, you would crawl in",
+        "prereqs": "baby",
+        "noprereqs": "I mean you try but you aren't malnurished enough to squeeze through to the robe\nGood effort tho\nWhat do you do ??:",
+        "get": "The baby stealth crawls in and opens the door\nYou waltz in and HUZZAH you put the sweet threads on\nYou are now DRESSED like a peasant\nWhat do you do ??:"
+      }
     },
     "exit": {
       "north": "A3"
@@ -137,14 +149,11 @@
     ]
   },
   "B2": {
-    "objectives": {
-      "muddyBoy": false
-    },
     "items": {
       "muddy": {
-        "description": "dry patch of land in the midst.\nPerhaps if it rained it could be a beautiful puddle\nHopefully one day you can be a muddy boy\n",
+        "description": "a dry patch of land.\nPerhaps if it rained it could be a beautiful puddle\nHopefully one day you can jump in and be a muddy boy\n",
         "prereqs": "belt",
-        "noprereqs": "If only you could be muddy...\nalas you just stand here like a fool\nstaring at a dry patch of land\nWhat do you do ??:",
+        "noprereqs": "If only you could be muddy...\nalas you just stand here jumping on dry ground\nlike a fool\nWhat do you do ??:",
         "get": "Jumping into the mud pit and you become the muddyest of boys.\nYou are on your way to being a true peasant.\nWhat do you do ??:"
       }
     },
@@ -177,14 +186,11 @@
     ]
   },
   "B3": {
-    "objectives": {
-      "get map": false
-    },
     "items": {
       "map": {
         "description": "poor burnt cottage\nNear the cottage lies a burnt paper...looks like a map\n",
         "prereqs": "None",
-        "get": "You pick up the burnenated paper\nITS A MAP!!\nNow you won't be poor AND lost\nTo access the fragile map, type 'map'\nWhat do you do ??:"
+        "get": "You pick up the burnenated paper\nIt IS a map!!\nNow you won't be poor AND lost\nTo access the fragile map, type 'map'\nWhat do you do ??:"
       }
     },
     "exit": {
@@ -217,7 +223,11 @@
     ]
   },
   "B4": {
-    "objectives": {},
+    "items": {
+      "the_ungettable_item": {
+        "description": "a lonely tree, behind is a declothed man\nCrazy Ned, Where is his robe?!?\nand why is he just chillin here?\n"
+      }
+    },
     "exit": {
       "north": "B3",
       "east": "C4",
@@ -238,22 +248,25 @@
       "        \\_    _/                                        ",
       "          \\  /                                          ",
       "           ##                                            ",
-      "           ##                                            ",
-      "           ##                                            ",
-      "           ##                                            ",
+      "           ##   _                                        ",
+      "           ## O/                                          ",
+      "           ##                                           ",
       "           ##                                            ",
       "                                                         ",
       "                                                         "
     ]
   },
   "C1": {
-    "objectives": {
-      "scare donkey": "maskus",
-      "haldo": "none"
+    "items": {
+      "maskus": {
+        "description": "a nice scenic view\nReminds you of your poor peasantly childhood\nThere is a cool well, you look inside and see a sweet monster maskus\n",
+        "prereqs": "pebbles",
+        "noprereqs": "You go to the crank, try as you might your poor weak peasant arms can't turn the crank, if only you had something to weigh it down.\nWhat do you do ??:",
+        "get": "You take your pebs, mutter a prayer of luck and place them in the bucket. The weight lowers the bucket and gets you THE MASKUS, now you can scare all sorts of angry beasts\nWhat do you do ??:"
+      }
     },
-
     "exit": {
-      "south": "A2"
+      "south": "C2"
     },
     "map": [
       "                                                         ",
@@ -279,7 +292,14 @@
     ]
   },
   "C2": {
-    "objectives": {},
+    "items": {
+      "supertimefunbow": {
+        "description": "You see a jovial man at the counter with a 'Hello my name is Mendelev' tag on.\n'HALDO' he shouts in a way that makes you quite annoyed\n'Have you come for the supertimefunbow?'\nHe says waving the freakishly fun looking bow around",
+        "prereqs": "arrow",
+        "noprereqs": "Mendelev squints 'I see you don't have any ammo...I can't give you a bow if you have no ammo', looks like it's no funtimebow for you\nWhat do you do ??:",
+        "get": "Mendelev dances an annoying dance 'YOU HAVE AMMO'\nHe hands you the supertimefunbow, looks like you are goin hunting\nWhat do you do ??:"
+      }
+    },
     "exit": {
       "west": "B2",
       "north": "C1",
@@ -320,7 +340,7 @@
       "pebbles": {
         "description": "fairly basic lake, it's glistening but you've seen better\n Near the lake is a smattering of pebbles\n",
         "prereqs": "None",
-        "get": "Well how do ya do, got ya some pebs\nYou may be homeless but with a pocket full of pebs...\nYou are still pretty vengeful\nWhat do you do ??:"
+        "get": "Well how do ya do, got ya some pebs\nYou may be homeless but with a pocket full of pebs...\nYou are still pretty homeless\nWhat do you do ??:"
       }
     },
     "map": [
@@ -443,7 +463,28 @@
       "south": "E3",
       "east": "Trog_Lair"
     },
-    "map": "String to represent Map"
+    "map": [
+      "                                                         ",
+      "                                                         ",
+      "                                    _______              ",
+      "                                   | Lair >|             ",
+      "                                   | Stair>|          ___|",
+      "                                    ``````        __|    ",
+      "                                      || ________|       ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                      __|",
+      "                                                   __|( )",
+      "                                          ________|( )Oo ",
+      "                                             ..,, (O))    ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         "
+    ]
   },
   "E3": {
     "objectives": {},
@@ -452,7 +493,28 @@
       "north": "E2",
       "south": "E4"
     },
-    "map": "String to represent Map"
+    "map": [
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                    _.-'`\\.                              ",
+      "                  ./\\.     \\.                            ",
+      "                ./    \\.     \\                           ",
+      "              ./  INN   \\.   /|                          ",
+      "             /            \\ / |                          ",
+      "            |``````````````|  |                          ",
+      "            |              |  /                          ",
+      "            |      ##      | /                           ",
+      "            |______##______|/                            ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         "
+    ]
   },
   "E4": {
     "objectives": {},
@@ -460,7 +522,28 @@
       "north": "E3",
       "west": "D4"
     },
-    "map": "String to represent Map"
+    "map": [
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                \\     /                                  ",
+      "               \\/     \\                                  ",
+      "                \\/   \\/    //                           ",
+      "                 \\/ /   \\/   |                           ",
+      "                  \\####/     #                           ",
+      "                   ####                                  ",
+      "                   ####                                  ",
+      "                   ####                                  ",
+      "                   TREE                                  ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         "
+    ]
   },
   "Trog_lair": {
     "objectives": [],
