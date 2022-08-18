@@ -1,4 +1,4 @@
-#class to create the peasant object that will be used to determine game progress
+"""Peasant class to create a peasant object that will be used to determine game progress"""
 
 class Peasant: 
 
@@ -9,5 +9,3 @@ class Peasant:
         self.stink = stink
         self.dress = dress
         self.fire = fire
-
-#setting all the objects that the character needs to obtain

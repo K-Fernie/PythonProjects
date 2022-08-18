@@ -1,6 +1,6 @@
 import curses
 from re import sub
-from globalInfo import getMap, mapObjectives, instructions, mapResponse, burntHomeLook, dashing, jerkResponse, burnenatedPaper, gotIt, dontGotIt, objCompleteLook, screenInitTxt
+from globalInfo import stringResponses, getMap, mapObjectives, dashing
 from curses import wrapper
 from curses.textpad import Textbox, rectangle
 from operator import contains, truediv
@@ -28,7 +28,7 @@ def lookItem(subwin,txtwin, location):
         printstring += "What do you do ??:"
         subRefresh(subwin,txtwin,printstring,location)
     else: 
-        subRefresh(subwin,txtwin,objCompleteLook,location)
+        subRefresh(subwin,txtwin,stringResponses["objCompleteLook"],location)
 
 def getItem(subwin,txtwin,location,item):
     itemObj = mapObjectives[location]["items"]
@@ -65,9 +65,9 @@ def textInteract(subwin, txtwin, witty_response, location):
         if "map" in dashing.inventory:
             with Image.open(getMap(location)) as img: 
                 img.show()
-            subRefresh(subwin,txtwin,mapResponse,location)
+            subRefresh(subwin,txtwin,stringResponses["mapResponse"],location)
         else:
-            subRefresh(subwin,txtwin,dontGotIt,location)
+            subRefresh(subwin,txtwin,stringResponses["dontGotIt"],location)
     elif contRes == "inventory":
         inv = f"Inventory: {dashing.inventory}\nWhat do you do ??: "
         subRefresh(subwin,txtwin,inv,location)
@@ -79,18 +79,19 @@ def textInteract(subwin, txtwin, witty_response, location):
         getItem(subwin,txtwin,location,contRes[4:])
 
     elif contRes == "help": 
-        subRefresh(subwin,txtwin,instructions["simpleInstructions"], location)
-
-   
+        subRefresh(subwin,txtwin,stringResponses["simpleInstructions"], location)
 
     elif contRes == "done":
         pass
-
+    elif contRes == "save":
+        #TODO - pass a timestamp, and the peasant information to a save file
+        pass
     else: 
-        subRefresh(subwin,txtwin,jerkResponse, location)
+        subRefresh(subwin,txtwin,stringResponses["jerkResponse"], location)
 
 def gameStart(screen,heroloc):
     #list that tracks obstacles 
+
     obsList = []
 
     #initiating the screen
@@ -166,7 +167,7 @@ def gameStart(screen,heroloc):
             curses.beep()
             close_screen = True
         if event == curses.KEY_HOME:
-            textInteract(sub2, tb, screenInitTxt, screen)
+            textInteract(sub2, tb, stringResponses["screenInitText"], screen)
         if event == curses.KEY_DOWN:
             y += 1
             try:
@@ -259,7 +260,7 @@ def gameStart(screen,heroloc):
 #TODO- If user types "Save" save the current status of dashing in a local text file
 #TODO- 
 # initiating separate from main for testing purposes only
-gameStart("B3",[15,5]) 
+#gameStart("B3",[15,5]) 
 
             
 
