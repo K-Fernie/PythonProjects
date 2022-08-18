@@ -333,7 +333,6 @@
     "exit": {
       "north": "C2",
       "south": "C4",
-      "east": "D3",
       "west": "B3"
     },
     "items": {
@@ -401,8 +400,7 @@
     "objectives": {},
     "exit": {
       "south": "D4",
-      "east": "E3",
-      "west": "C3"
+      "east": "E3"
     },
     "map": [
       " ------   - -    --   --    - -    -    \\                ",

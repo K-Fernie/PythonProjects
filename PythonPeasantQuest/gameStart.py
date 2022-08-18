@@ -46,9 +46,6 @@ def getItem(subwin,txtwin,location,item):
         response = "You can't get that, What do you do ??:"
         subRefresh(subwin,txtwin,response,location)
 
-def talkNPC(subwin,txtwin,location):
-    pass
-
 
 def subRefresh(subwin, txtwin, witty_response, location):
     subwin.clear()
@@ -92,7 +89,7 @@ def textInteract(subwin, txtwin, witty_response, location):
     else: 
         subRefresh(subwin,txtwin,jerkResponse, location)
 
-def gameStart(screen):
+def gameStart(screen,heroloc):
     #list that tracks obstacles 
     obsList = []
 
@@ -120,7 +117,7 @@ def gameStart(screen):
         
 
     heroImg = '\u265E'
-    hero = [15,5]
+    hero = heroloc
     win.addch(hero[0], hero[1], heroImg)
 
     close_screen = False
@@ -128,7 +125,7 @@ def gameStart(screen):
     #initiating game loop
     while not close_screen:
 
-        northExit = False
+        northExit,westExit,southExit,eastExit = False, False, False, False
 
         sub2.clear()
         sub2.refresh()
@@ -176,9 +173,9 @@ def gameStart(screen):
                 
                 if y == 20: 
                     curses.endwin()
-                    gameStart(mapObjectives[screen]["exit"].get("south"))
+                    gameStart(mapObjectives[screen]["exit"].get("south"),[1,30])
                     break
-                elif y == 19 and (x >= 25 and x < 35): 
+                elif y == 19 and (x >= 25 and x < 35) and southExit: 
                     win.addch(hero[0], hero[1], " ")
                     hero[0] = y
                     win.addch(hero[0], hero[1], heroImg)
@@ -197,7 +194,7 @@ def gameStart(screen):
                 #This is the North Exit
                 if y==0: 
                     curses.endwin()
-                    gameStart(mapObjectives[screen]["exit"].get("north"))
+                    gameStart(mapObjectives[screen]["exit"].get("north"),[19,30])
                     break
                 if y == 1 and (x >= 25 and x < 35) and northExit: 
                     win.addch(hero[0], hero[1], " ")
@@ -217,9 +214,9 @@ def gameStart(screen):
             try:
                 if x == 0: 
                     curses.endwin()
-                    gameStart(mapObjectives[screen]["exit"].get("west"))
+                    gameStart(mapObjectives[screen]["exit"].get("west"),[10,58])
                     break
-                elif x == 1 and (y >= 8 and y < 12):
+                elif x == 1 and (y >= 8 and y < 12) and westExit:
                     win.addch(hero[0], hero[1], " ")
                     hero[1] = x
                     win.addch(hero[0], hero[1], heroImg)
@@ -237,9 +234,9 @@ def gameStart(screen):
             try:
                 if x == 59: 
                     curses.endwin()
-                    gameStart(mapObjectives[screen]["exit"].get("east"))
+                    gameStart(mapObjectives[screen]["exit"].get("east"),[10,1])
                     break
-                elif x == 58 and (y >= 8 and y < 12):
+                elif x == 58 and (y >= 8 and y < 12) and eastExit:
                     win.addch(hero[0], hero[1], " ")
                     hero[1] = x
                     win.addch(hero[0], hero[1], heroImg)
@@ -256,8 +253,13 @@ def gameStart(screen):
 #TODO - Finish writing the requirements for the JSON file 
 #TODO - Write out fight simulation with Trogdor
 #TODO - Figure out if global info would be better suited as a JSON file too
+#TODO - Add comments
+#TODO- Move helper functions to a separate file
+#TODO- Figure out the Kerrek (moving item that could kill you if you are overlapped)
+#TODO- If user types "Save" save the current status of dashing in a local text file
+#TODO- 
 # initiating separate from main for testing purposes only
-gameStart("B3") 
+gameStart("B3",[15,5]) 
 
             
 
