@@ -21,10 +21,10 @@ def lookItem(subwin,txtwin, location):
         for item in itemKey:
             description = itemKey[item]["description"]
             if itemCount == 0:
-                printstring+=f"You look and see a {description}"
+                printstring+=f"You look and see {description}"
                 itemCount += 1
             else: 
-                printstring+=f" and a {description}\n"
+                printstring+=f" and {description}\n"
         printstring += "What do you do ??:"
         subRefresh(subwin,txtwin,printstring,location)
     else: 
@@ -61,8 +61,7 @@ def textInteract(subwin, txtwin, witty_response, location):
     subwin.addstr(witty_response)
     txtwin.edit(enter_is_terminate)
     contents = txtwin.gather().split("??:", 1)[1]
-    s = ""
-    contRes = s.join(contents).strip().lower()
+    contRes = "".join(contents).strip().lower()
     
 
     if contRes == "map":
@@ -253,9 +252,12 @@ def gameStart(screen):
             except:
                 pass
 
-
+#TODO - Add a hero location to game start and then modify it based on where they are entering from 
+#TODO - Finish writing the requirements for the JSON file 
+#TODO - Write out fight simulation with Trogdor
+#TODO - Figure out if global info would be better suited as a JSON file too
 # initiating separate from main for testing purposes only
-gameStart("Dead") 
+gameStart("B3") 
 
             
 
