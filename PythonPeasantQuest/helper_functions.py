@@ -3,8 +3,9 @@ The helper_function module contains functions that are used to
 process the user input while the program is running
 """
 import pickle
-from global_data import string_responses, dashing, dash_objectives
 from PIL import Image
+from global_data import string_responses, dashing, dash_objectives
+
 
 """
 Get map retuns the map path based on the users current map location
@@ -27,19 +28,19 @@ the string returned is pulled from dash_objectives and is one of two things
 2. a prompt that there's nothing left to see and to move on
 """
 def look_item(subwin,txtwin, location):
-    itemCount = 0
+    item_count = 0
     itemKey = dash_objectives.objectiveDict[location]["items"]
-    printstring = ""
+    print_string = ""
     if itemKey:
         for item in itemKey:
             description = itemKey[item]["description"]
-            if itemCount == 0:
-                printstring+=f"You look and see {description}"
-                itemCount += 1
+            if item_count == 0:
+                print_string+=f"You look and see {description}"
+                item_count += 1
             else:
-                printstring+=f" and {description}\n"
-        printstring += "What do you do ??:"
-        sub_refresh(subwin,txtwin,printstring,location)
+                print_string+=f" and {description}\n"
+        print_string += "What do you do ??:"
+        sub_refresh(subwin,txtwin,print_string,location)
     else:
         sub_refresh(subwin,txtwin,string_responses["objCompleteLook"],location)
 
@@ -50,16 +51,16 @@ if the user does not have the prerequisites they are returned the
 noprereqs string and the item is not appended to their inventory
 """
 def get_item(subwin,txtwin,location,item):
-    itemObj = dash_objectives.objectiveDict[location]["items"]
+    item_objv = dash_objectives.objectiveDict[location]["items"]
 
-    if item in itemObj and item not in dashing.inventory:
-        prereqs = itemObj[item]["prereqs"]
+    if item in item_objv and item not in dashing.inventory:
+        prereqs = item_objv[item]["prereqs"]
         if (prereqs != "None" and prereqs in dashing.inventory) or (prereqs == "None"):
-            response = itemObj[item]["get"]
-            del itemObj[item]
+            response = item_objv[item]["get"]
+            del item_objv[item]
             dashing.inventory.append(item)
         else:
-            response = itemObj[item]["noprereqs"]
+            response = item_objv[item]["noprereqs"]
         sub_refresh(subwin,txtwin,response,location)
 
         #Checking that the items for trogdor win conditions are present and updating accordingly
@@ -95,9 +96,9 @@ def text_interact(subwin, txtwin, witty_response, location):
     txtwin.edit(enter_is_terminate)
     contents = txtwin.gather()
     contInterim = contents.split("??:", 1)[1]
-    contRes = "".join(contInterim).strip().lower()
+    cont_res = "".join(contInterim).strip().lower()
 
-    if contRes == "map":
+    if cont_res == "map":
         if "map" in dashing.inventory:
             with Image.open(get_map(location)) as img:
                 img.show()
@@ -105,22 +106,22 @@ def text_interact(subwin, txtwin, witty_response, location):
         else:
             sub_refresh(subwin,txtwin,string_responses["dontGotIt"],location)
 
-    elif contRes == "inventory":
+    elif cont_res == "inventory":
         inv = f"Inventory: {dashing.inventory}\nWhat do you do ??: "
         sub_refresh(subwin,txtwin,inv,location)
 
-    elif "look" in contRes:
+    elif "look" in cont_res:
         look_item(subwin,txtwin, location)
 
-    elif "get" in contRes:
-        get_item(subwin,txtwin,location,contRes[4:])
+    elif "get" in cont_res:
+        get_item(subwin,txtwin,location,cont_res[4:])
 
-    elif contRes == "help":
+    elif cont_res == "help":
         sub_refresh(subwin,txtwin,string_responses["simpleInstructions"], location)
 
-    elif contRes == "done":
+    elif cont_res == "done":
         pass
-    elif contRes == "save":
+    elif cont_res == "save":
         with open('PythonPeasantQuest/peasant_data.pkl', 'wb') as outp:
             pickle.dump(dashing,outp,pickle.HIGHEST_PROTOCOL)
         sub_refresh(subwin,txtwin,string_responses["saveSuccess"],location)
