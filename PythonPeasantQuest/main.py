@@ -41,7 +41,7 @@ def main():
                         os.system("clear")
                         load_animation("Awaaaay we goooo....")
                         gameStart('B3',[15,5])
-        except:
+        except pickle.PickleError:
             pass
 
         os.system("clear")
