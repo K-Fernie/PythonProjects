@@ -35,7 +35,7 @@ def look_item(subwin,txtwin, location):
     2. a prompt that there's nothing left to see and to move on
     """
     item_count = 0
-    item_key = dash_objectives.objectiveDict[location]["items"]
+    item_key = dash_objectives.objective_dict[location]["items"]
     print_string = ""
     if item_key:
         for item in item_key:
@@ -58,7 +58,7 @@ def get_item(subwin,txtwin,location,item):
     if the user does not have the prerequisites they are returned the
     noprereqs string and the item is not appended to their inventory
     """
-    item_objv = dash_objectives.objectiveDict[location]["items"]
+    item_objv = dash_objectives.objective_dict[location]["items"]
 
     if item in item_objv and item not in dashing.inventory:
         prereqs = item_objv[item]["prereqs"]

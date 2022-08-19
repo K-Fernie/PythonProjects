@@ -1,6 +1,6 @@
 import json
 import copy
-from PeasantClasses import Peasant, Objectives
+from peasant_classes import Peasant, Objectives
 
 global string_responses 
 string_responses = {
@@ -56,7 +56,7 @@ string_responses = {
 }
 
 global dashing
-dashing = Peasant("Dashing", "B3", [], False, False, False)
+dashing = Peasant("B3", [], False, False, False)
 
 with open('PythonPeasantQuest\mapObjectives.json', 'r') as objective_file:
     map_objectives = json.load(objective_file)
