@@ -12,7 +12,7 @@ def get_map(map_location):
     """
     Get map retuns the map path based on the users current map location
     """
-    return f'PythonPeasantQuest\images\{map_location}.png'
+    return f'PythonPeasantQuest\\images\\{map_location}.png'
 
 
 def enter_is_terminate(key_code):
@@ -52,7 +52,7 @@ def get_item(subwin,txtwin,location,item):
     """
     get_item allows the user to get the available item
     this get can only be done if the user has the prerequisites
-    if the user does not have the prerequisites they are returned the 
+    if the user does not have the prerequisites they are returned the
     noprereqs string and the item is not appended to their inventory
     """
     item_objv = dash_objectives.objectiveDict[location]["items"]
