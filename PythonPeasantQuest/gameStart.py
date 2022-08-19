@@ -15,7 +15,9 @@ The user is sent to the death screen for three different death events:
 3. Facing Trogdor too soon
 """
 def deadGuy(screen):
-    
+    """
+    Dead Guy function is called when a game ending event occurs
+    """
     #initiating the screen
     curses.initscr()
     win = curses.newwin(30, 60, 1, 1)
@@ -50,21 +52,21 @@ def deadGuy(screen):
             curses.beep()
             close_screen = True
         if event == curses.KEY_HOME:
-                sub2.addstr(stringResponses["playAgain"])
-                tb.edit(enter_is_terminate)
-                contents = tb.gather().split("??:", 1)[1]
-                contRes = "".join(contents).strip().lower()
-                if contRes == "y":
-                    dashing.inventory = []
-                    dashing.dress = False
-                    dashing.fire = False
-                    dashing.stink = False
-                    dashObjectives.objectiveDict = dashObjectivesCopy
-                    game_start("B3", [15,5])
-                elif contRes == "n":
-                    close_screen = True
-                else:
-                    sub2.addstr("I didn't get that, would you like to play again ??:")
+            sub2.addstr(stringResponses["playAgain"])
+            tb.edit(enter_is_terminate)
+            contents = tb.gather().split("??:", 1)[1]
+            contRes = "".join(contents).strip().lower()
+            if contRes == "y":
+                dashing.inventory = []
+                dashing.dress = False
+                dashing.fire = False
+                dashing.stink = False
+                dashObjectives.objectiveDict = dashObjectivesCopy
+                game_start("B3", [15,5])
+            elif contRes == "n":
+                close_screen = True
+            else:
+                sub2.addstr("I didn't get that, would you like to play again ??:")
 
     curses.endwin()
 
@@ -114,10 +116,9 @@ def game_start(screen,heroloc):
 
         win.refresh()
         pass
- 
 
-    #Setting booleans for screen control
-    
+
+    #Setting booleans for screen control    
     down = True
     left = True
     close_screen = False
@@ -285,7 +286,7 @@ def game_start(screen,heroloc):
             win.addstr(kerrekloc[0], kerrekloc[1], kerrek)
 
             #Kerrek's Kill zone
-            killZone = [
+            kill_zone = [
             [y_1,x_1-1],
             [y_1,x_1],
             [y_1,x_1+1],
@@ -302,7 +303,7 @@ def game_start(screen,heroloc):
             ]
             #Death Conditions
 
-            if hero in killZone:
+            if hero in kill_zone:
                 close_screen = True
         if "sword" in dashing.inventory:
             dashObjectives.objectiveDict["E2"]["exit"]["east"] = "Trog_lair"
