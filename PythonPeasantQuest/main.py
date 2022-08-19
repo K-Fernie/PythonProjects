@@ -1,33 +1,36 @@
 import os
 import pickle
+from art import tprint, aprint
 from travelAnimation import load_animation
 from gameStart import gameStart
 from globalData import stringResponses, dashing
-from art import tprint, aprint
-from PeasantClasses import Peasant
 
 
+"""Main function to be executed at runtime"""
 def main():
-
+    """
+    The game will start with instructions and determine if a save file exists
+    The user will be prompted to either use the save data or start a new game
+    """
     #initial introduction to PeasCant Quest
     tprint("Let's Quest", font="epic",chr_ignore=True)
     print(stringResponses["complexInstructions"])
 
-    startGame = input("Are you ready to begin the quest?? y/n: ")
+    start_game = input("Are you ready to begin the quest?? y/n: ")
 
-    if startGame.lower() == "y":
+    if start_game.lower() == "y":
 
         try:
-            with open('PythonPeasantQuest/peasant_data.pkl', 'rb') as peasantData:
-                peasantNew = pickle.load(peasantData)
-            if peasantNew: 
-                saveGame = input("It looks like there is a saved game, would you like to load that game? y/n: ")
-                if saveGame.lower() == "y":
-                    dashing.inventory = peasantNew.inventory
-                    dashing.dress = peasantNew.dress
-                    dashing.fire = peasantNew.fire
-                    dashing.stink = peasantNew.stink 
-                    gameStart(peasantNew.storyframe,[15,5])
+            with open('PythonPeasantQuest/peasant_data.pkl', 'rb') as peasant_data:
+                peasant_new = pickle.load(peasant_data)
+            if peasant_new: 
+                save_game = input("It looks like there is a saved game, would you like to load that game? y/n: ")
+                if save_game.lower() == "y":
+                    dashing.inventory = peasant_new.inventory
+                    dashing.dress = peasant_new.dress
+                    dashing.fire = peasant_new.fire
+                    dashing.stink = peasant_new.stink 
+                    gameStart(peasant_new.storyframe,[15,5])
                 else: 
                     os.system("clear")
                     load_animation("Booting sad peasantry....")
@@ -37,8 +40,8 @@ def main():
 
                     print(stringResponses["introText"])
 
-                    mv = input("\nPress ENTER to BEGIN\n")
-                    if(mv.lower() != "q"):
+                    begin = input("\nPress ENTER to BEGIN\n")
+                    if begin.lower() != "q":
 
                         os.system("clear")
                         load_animation("Awaaaay we goooo....")
@@ -56,11 +59,9 @@ def main():
 
         mv = input("\nPress ENTER to BEGIN\n")
         if(mv.lower() != "q"):
-
             os.system("clear")
             load_animation("Awaaaay we goooo....")
-            gameStart('B3',[15,5])
-            
+            gameStart('B3',[15,5])       
     else: 
         print("Come back again... if you are peasanty enough!!")
 
