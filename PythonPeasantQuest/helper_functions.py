@@ -15,13 +15,13 @@ def get_map(map_location):
     return f'PythonPeasantQuest\images\{map_location}.png'
 
 
-def enter_is_terminate(x):
+def enter_is_terminate(key_code):
     """
     enter_is_terminate returns the code for Ctrl+G when the enter key is hit
     """
-    if x == 10:
-        x = 7
-    return x
+    if key_code == 10:
+        key_code = 7
+    return key_code
 
 
 def look_item(subwin,txtwin, location):
