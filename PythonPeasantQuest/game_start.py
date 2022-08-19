@@ -315,5 +315,6 @@ def game_start(screen,heroloc):
     if close_screen == True:
         dead_guy("Dead_Screen")
 
+#Starting for testing purposes, not to be used during game
 #dead_guy("Dead_Screen")
 #game_start("B3",[15,5])
