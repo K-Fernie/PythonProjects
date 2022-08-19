@@ -12,7 +12,8 @@ def string_response(string):
     """
     string_responses = {
             
-            "complexInstructions" : "1.You will do many things in text mode press the 'home' key to enter text mode\n"\
+            "complexInstructions" : "INSTRUCTIONS:\n"\
+                "1.You will do many things in text mode press the 'home' key to enter text mode\n"\
                 "2.Type 'done' and press enter to exit text mode\n"\
                 "3 Use the arrow keys to move around\n"\
                 "4 If you get lost you can always type 'help'\n"\
