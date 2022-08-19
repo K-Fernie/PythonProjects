@@ -3,6 +3,9 @@ import copy
 from peasant_classes import Peasant, Objectives
 
 def string_response(string):
+    """
+    string_responses holds a dictionary of general responses to return based on user interaction
+    """
     string_responses = {
             
             "complexInstructions" : "1.You will do many things in text mode press the 'home' key to enter text mode\n"\
