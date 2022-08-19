@@ -5,8 +5,6 @@ from travelAnimation import load_animation
 from gameStart import gameStart
 from globalData import stringResponses, dashing
 
-
-"""Main function to be executed at runtime"""
 def main():
     """
     The game will start with instructions and determine if a save file exists
