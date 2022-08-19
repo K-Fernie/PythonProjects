@@ -7,6 +7,7 @@ from operator import contains, truediv
 from travelAnimation import load_animation
 from Peasant import Peasant
 from PIL import Image
+import pickle
 
 def enter_is_terminate(x):
     if x == 10:
@@ -93,8 +94,8 @@ def textInteract(subwin, txtwin, witty_response, location):
     elif contRes == "done":
         pass
     elif contRes == "save":
-        #TODO - pass a timestamp, and the peasant information to a save file
-        pass
+        with open('peasant_data.pkl', 'wb') as outp:
+            pickle.dump(dashing,outp,pickle.HIGHEST_PROTOCOL)
     else: 
         subRefresh(subwin,txtwin,stringResponses["jerkResponse"], location)
 
