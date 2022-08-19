@@ -42,12 +42,15 @@ def main():
                         os.system("clear")
                         load_animation("Awaaaay we goooo....")
                         game_start('B3',[15,5])
-
+        #exception for an empty file
         except EOFError:
             pass
-
+        #exception to handle corrupted data in the file
         except pickle.UnpicklingError:
             os.remove('PythonPeasantQuest/peasant_data.pkl')
+        #exception to handle when the file has been deleted due to corruption
+        except FileNotFoundError:
+            pass
         #If no file exists continue with booting the game for the first time UX
         os.system("clear")
         load_animation("Booting sad peasantry....")
