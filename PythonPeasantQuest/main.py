@@ -1,3 +1,6 @@
+"""
+Main function to be run at runtime, this is the only entry point to the game
+"""
 import os
 import pickle
 from art import tprint, aprint
@@ -27,7 +30,7 @@ def main():
                     dashing.fire = peasant_new.fire
                     dashing.stink = peasant_new.stink
                     gameStart(peasant_new.storyframe,[15,5])
-                else: 
+                else:
                     os.system("clear")
                     load_animation("Booting sad peasantry....")
                     tprint("HOUSE", font="fire_font-s", chr_ignore=True)
@@ -38,7 +41,7 @@ def main():
                         os.system("clear")
                         load_animation("Awaaaay we goooo....")
                         gameStart('B3',[15,5])
-        except: 
+        except:
             pass
 
         os.system("clear")
