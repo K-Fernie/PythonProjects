@@ -41,7 +41,7 @@
         "description": "a lonely tree and a nice floofy pile of hay\nYou loved to jump in those floofs as a kid\n",
         "prereqs": "muddy",
         "noprereqs": "You jump in the hay, it's worse than you remember\nMay be nicer if there was mud to buffer the itch\nWhat do you do ??:",
-        "get": "You gloop into the hay, it's as nice as you remember\nYou are now an unrecognizable spook hay horror\nWhat do you do ??:"
+        "get": "You gloop into the hay, like a gentle gloopy hug it sticks to you.\nnYou are now an unrecognizable spook hay horror\nWhat do you do ??:"
       }
     },
     "exit": {
@@ -103,8 +103,8 @@
       "                                                         ",
       "                             CAVE                        ",
       "                           #########                    ",
-      "                        ######^^######                   ",
-      "                       #######^^#######                  ",
+      "             ooooo      ######^^######                   ",
+      "           OJEWELSO    #######^^#######                  ",
       "                                                         ",
       "                                                         ",
       "                                                         ",
@@ -155,7 +155,7 @@
         "description": "a big ol kerrek comin at you\nMom always said 'don't ye mess with them kerreks'\nBest to stay away until you have a weapon.\nBut hey, he's got a nice belt!",
         "prereqs": "supertimefunbow",
         "noprereqs": "Well, that's an extremely stupid move... seeing as the belt is attached to a living breathing kerrek\nWhat do you do ??: ",
-        "get": "You pull out the bow, the arrow lined up nicely and you SLAY the kerrek where he stands\nGosh this dude REALLY stank! You take his nifty belt and put it on YOU NOW STINK LIKE A PEASANT"
+        "get": "You pull out the bow, the arrow lined up nicely and you SLAY the kerrek where he stands\nA light rain falls as the Kerrek's Curse on the land has been lifted\nGosh this dude REALLY stank! You take his nifty belt and put it on YOU NOW STINK LIKE A PEASANT"
       }
     },
     "exit": {
@@ -212,7 +212,7 @@
       "                        /^^^^^^^\\                        ",
       "                      /###########\\                      ",
       "                     |#############\\                     ",
-      "                    |##DRY GROUND##|                     ",
+      "                    |##############|                     ",
       "                     |#############/                     ",
       "                      \\##########/                       ",
       "                       ----------                        ",
@@ -468,7 +468,20 @@
     ]
   },
   "D4": {
-    "objectives": {},
+    "items": {
+      "chickenfeed": {
+        "description": "",
+        "prereqs": "",
+        "noprereqs": "",
+        "get": ""
+      },
+      "baby": {
+        "description": "",
+        "prereqs": "",
+        "noprereqs": "",
+        "get": ""
+      }
+    },
     "exit": {
       "north": "D3",
       "east": "E4",

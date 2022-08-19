@@ -61,10 +61,15 @@ def textInteract(subwin, txtwin, witty_response, location):
 
     subwin.addstr(witty_response)
     txtwin.edit(enter_is_terminate)
-    contents = txtwin.gather().split("??:", 1)[1]
-    contRes = "".join(contents).strip().lower()
+    contents = txtwin.gather()
+    contInterim = contents.split("??:", 1)[1]
+    contRes = "".join(contInterim).strip().lower()
     
-
+    # if "'Did you steal my riches'" in contents:
+    #     if contRes == "no":
+    #         subRefresh(subwin,txtwin,dashObjectives.objectiveDict["A3"]["items"]["riches"]["dead"]["small_dead"])
+    #     else:
+    #         subRefresh(subwin,)
     if contRes == "map":
         if "map" in dashing.inventory:
             with Image.open(getMap(location)) as img: 
