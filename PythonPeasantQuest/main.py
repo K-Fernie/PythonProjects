@@ -5,7 +5,7 @@ import os
 import pickle
 from art import tprint, aprint
 from travelAnimation import load_animation
-from gameStart import game_start
+from game_start import game_start
 from globalData import stringResponses, dashing
 
 def main():

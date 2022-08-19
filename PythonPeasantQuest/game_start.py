@@ -14,7 +14,7 @@ The user is sent to the death screen for three different death events:
 2. Killed by the Johnka
 3. Facing Trogdor too soon
 """
-def deadGuy(screen):
+def dead_guy(screen):
     """
     Dead Guy function is called when a game ending event occurs
     """
@@ -55,15 +55,15 @@ def deadGuy(screen):
             sub2.addstr(stringResponses["playAgain"])
             tb.edit(enter_is_terminate)
             contents = tb.gather().split("??:", 1)[1]
-            contRes = "".join(contents).strip().lower()
-            if contRes == "y":
+            cont_res = "".join(contents).strip().lower()
+            if cont_res == "y":
                 dashing.inventory = []
                 dashing.dress = False
                 dashing.fire = False
                 dashing.stink = False
                 dashObjectives.objectiveDict = dashObjectivesCopy
                 game_start("B3", [15,5])
-            elif contRes == "n":
+            elif cont_res == "n":
                 close_screen = True
             else:
                 sub2.addstr("I didn't get that, would you like to play again ??:")
@@ -163,7 +163,7 @@ def game_start(screen,heroloc):
         y = hero[0]
         x = hero[1]
         if screen == "Dead_Screen":
-            deadGuy(sub2, tb)
+            dead_guy(sub2, tb)
         if event == curses.KEY_END:
             curses.beep()
             close_screen = True
@@ -313,7 +313,7 @@ def game_start(screen,heroloc):
 
     curses.endwin()
     if close_screen == True:
-        deadGuy("Dead_Screen")
+        dead_guy("Dead_Screen")
 
-#deadGuy("Dead_Screen")
+#dead_guy("Dead_Screen")
 #game_start("B3",[15,5])
