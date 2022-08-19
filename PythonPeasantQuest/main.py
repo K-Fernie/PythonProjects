@@ -1,4 +1,5 @@
 """
+Author : Kaitlyn Fernelius
 Main function to be run at runtime, this is the only entry point to the game
 """
 import os
