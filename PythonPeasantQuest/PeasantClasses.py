@@ -9,3 +9,9 @@ class Peasant:
         self.stink = stink
         self.dress = dress
         self.fire = fire
+
+
+class Objectives: 
+    
+    def __init__(self, objectiveDict):
+        self.objectiveDict = objectiveDict

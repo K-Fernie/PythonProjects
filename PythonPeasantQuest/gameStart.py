@@ -1,13 +1,8 @@
 import curses
-from re import sub
-from globalInfo import stringResponses, getMap, dashObjectives, dashObjectivesCopy, dashing
-from curses import wrapper
-from curses.textpad import Textbox, rectangle
-from operator import contains, truediv
-from travelAnimation import load_animation
-from helperFunctions import textInteract, enter_is_terminate   
-from Objectives import Objectives
-from PIL import Image
+from globalData import stringResponses,dashing, dashObjectives, dashObjectivesCopy
+from curses.textpad import Textbox
+from helperFunctions import textInteract, enter_is_terminate, getMap   
+
 
 """
 The user is sent to the death screen for three different death events:
@@ -77,8 +72,7 @@ The goal is to get all the items needed to:
 """
 def gameStart(screen,heroloc):
     """Setting the screen for the game play"""
-    
-
+    dashing.storyframe = screen
     #initiating the screen
     curses.initscr()
     win = curses.newwin(30, 60, 1, 1)
@@ -305,6 +299,8 @@ def gameStart(screen,heroloc):
           
             if hero in killZone:
                 close_screen = True 
+        if "sword" in dashing.inventory:
+            dashObjectives.objectiveDict["E2"]["exit"]["east"] = "Trog_lair"
 
         if "trogdor" in dashing.inventory:
             close_screen = True
@@ -313,15 +309,11 @@ def gameStart(screen,heroloc):
     if close_screen == True:
         deadGuy("Dead_Screen")            
 #TODO - Finish writing the requirements for the JSON file 
-#TODO - Write out fight simulation with Trogdor
 #TODO - Add comments
-#TODO- Move helper functions to a separate file
-#TODO- If user types "Save" save the current status of dashing in a local text file
-#TODO- If you don't have the sword remove the exit to the troglair and tell player they can only enter the cave if they are armed
 # initiating separate from main for testing purposes only
 
 #deadGuy("Dead_Screen") 
-gameStart("B3",[15,5]) 
+#gameStart("B3",[15,5]) 
 
             
 

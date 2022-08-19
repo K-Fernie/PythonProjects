@@ -1,7 +1,6 @@
 import json
 import copy
-from Peasant import Peasant
-from Objectives import Objectives
+from PeasantClasses import Peasant, Objectives
 
 global stringResponses 
 stringResponses = {
@@ -37,17 +36,6 @@ stringResponses = {
             "Next you need to DRESS like a peasant\n"\
             "Last you need to be on FIRE like a peasant\n"\
             "Only then will you be ready for VENGANCE",
-        
-        "riddles":{
-            "To whom did the robe you're wearing originally belong?" : "Naked Ned", 
-            "What color are the leaves on the tree that grows by the well?": "Orange", 
-            "What did you win from the Archery game?": "SuperTimeFunBow", 
-            "What does Mendelev have to tell Dongolev?": "Haldo", 
-            "What is the only creature the Johnka fears?": "The Kerrek", 
-            "What was the Innkeeper's pantry full of?": "Old Man Rub", 
-            "Which one of these letters is the letter C?": "C", 
-            "What is the land speed of a North American Swallow?": "Coconut Shell"
-            },
 
         "screenInitText": "Type 'done' to exit text mode\nWhat do you want poor peasant??: ", 
 
@@ -65,15 +53,14 @@ stringResponses = {
 
 }
 
-def getMap(mapLocation):
-    return f'PythonPeasantQuest\images\{mapLocation}.png'
-
 global dashing
-dashing = Peasant("Dashing", "B3", ["sword"], False, False, False)
-
+dashing = Peasant("Dashing", "B3", [], False, False, False)
 
 with open('PythonPeasantQuest\mapObjectives.json', 'r') as objectiveFile:
     mapObjectives = json.load(objectiveFile)
 
 dashObjectives = Objectives(mapObjectives)
-dashObjectivesCopy = copy.deepcopy(mapObjectives)           
+dashObjectivesCopy = copy.deepcopy(mapObjectives)
+
+def setPeasantData(peasantBool):
+    pass
