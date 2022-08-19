@@ -69,7 +69,7 @@ def getMap(mapLocation):
     return f'PythonPeasantQuest\images\{mapLocation}.png'
 
 global dashing
-dashing = Peasant("Dashing", "B3", [], False, False, False)
+dashing = Peasant("Dashing", "B3", ["sword"], False, False, False)
 
 
 with open('PythonPeasantQuest\mapObjectives.json', 'r') as objectiveFile:

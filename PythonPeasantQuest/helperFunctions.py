@@ -43,9 +43,14 @@ def getItem(subwin,txtwin,location,item):
             response = itemObj[item]["noprereqs"]
         subRefresh(subwin,txtwin,response,location)
 
-        #Checking that the items for trogdor win conditions are present
+        #Checking that the items for trogdor win conditions are present and updating accordingly
         if "belt" in dashing.inventory: 
             dashing.stink = True
+        if "robe" in dashing.inventory:
+            dashing.dress = True
+        if "lantern" in dashing.inventory:
+            dashing.fire = True
+
     else: 
         response = "You can't get that, What do you do ??:"
         subRefresh(subwin,txtwin,response,location)
@@ -65,11 +70,6 @@ def textInteract(subwin, txtwin, witty_response, location):
     contInterim = contents.split("??:", 1)[1]
     contRes = "".join(contInterim).strip().lower()
     
-    # if "'Did you steal my riches'" in contents:
-    #     if contRes == "no":
-    #         subRefresh(subwin,txtwin,dashObjectives.objectiveDict["A3"]["items"]["riches"]["dead"]["small_dead"])
-    #     else:
-    #         subRefresh(subwin,)
     if contRes == "map":
         if "map" in dashing.inventory:
             with Image.open(getMap(location)) as img: 

@@ -408,7 +408,14 @@
     ]
   },
   "C4": {
-    "objectives": {},
+    "items": {
+      "belt": {
+        "description": "a big ol kerrek comin at you\nMom always said 'don't ye mess with them kerreks'\nBest to stay away until you have a weapon.\nBut hey, he's got a nice belt!",
+        "prereqs": "supertimefunbow",
+        "noprereqs": "Well, that's an extremely stupid move... seeing as the belt is attached to a living breathing kerrek\nWhat do you do ??: ",
+        "get": "You pull out the bow, the arrow lined up nicely and you SLAY the kerrek where he stands\nA light rain falls as the Kerrek's Curse on the land has been lifted\nGosh this dude REALLY stank! You take his nifty belt and put it on YOU NOW STINK LIKE A PEASANT"
+      }
+    },
     "exit": {
       "north": "C3",
       "east": "D4"
@@ -439,7 +446,11 @@
     ]
   },
   "D3": {
-    "objectives": {},
+    "items": {
+      "old_man_fishing_but_you_wont_get_it": {
+        "description": "accross the beautiful lake a lovely sunset\nA sweet old man is fishing there\nYou have a feeling that you could do something here if the developer wasn't lazy\nAlas you can do nothing and must move on"
+      }
+    },
     "exit": {
       "south": "D4",
       "east": "E3"
@@ -469,17 +480,11 @@
   },
   "D4": {
     "items": {
-      "chickenfeed": {
-        "description": "",
-        "prereqs": "",
-        "noprereqs": "",
-        "get": ""
-      },
       "baby": {
-        "description": "",
-        "prereqs": "",
-        "noprereqs": "",
-        "get": ""
+        "description": "from inside the house you hear a woman shout 'Hello there, yoohoo, could you please help me'\nYou edge closer to the door\nI have lost my riches, fetch them for me and I will give you this brand new baby",
+        "prereqs": "riches",
+        "noprereqs": "The woman shouts 'RICHES FIRST THEN BABY'\nGuess you gotta find a way to get that lady's gems and what not\nWhat do you do ??:",
+        "get": "The lady bursts out the door, but ITS NOT A LADY AT ALL ITS A HECKIN WITCH\n'A BABY AS PROMISED' she cackles as she steals the riches\nMan those riches were probably the Jhonkas... no time to worry about aiding and abbeting now\nWhat do you do ??:"
       }
     },
     "exit": {
@@ -512,8 +517,11 @@
   },
   "E2": {
     "items": {
-      "one_you_cant_get": {
-        "description": "the looming path to TrogBoy's lair\nYou remember that you can only go in if you STINK like a peasant, DRESS like a peasant, and are on FIRE like a peasant\nJust make sure or else he will for sure burninate you"
+      "sword": {
+        "description": "there outside of the troglair is a sword in a stone, really serrindipidus if you ask me, probably one of those 'Only the true peasant can pull the sword' or something like that",
+        "prereqs": "lantern",
+        "noprereqs": "You grunt and tug and a gentle voice carries on the wind 'Sweet dingus this sword is only for peasants... so like back off mmkay?'\nWhat do you do ??:",
+        "get": "A light glows and you hear a voice from the heavens 'May this sword hopefully help you not die... good luck sweet dingus child.' You now have the SWORD that you will slay the trogboy with!\nWhat do you do ??:"
       }
     },
     "exit": {
@@ -525,16 +533,16 @@
       "                                                         ",
       "                                    _______              ",
       "                                   | Lair >|             ",
-      "                                   | Stair>|          ___|",
-      "                                    ``````        __|    ",
-      "                                      || ________|       ",
+      "                          -+-      | Stair>|        ___| ",
+      "                           |        ``````        __|    ",
+      "                         {{|}}        || ________|       ",
       "                                                         ",
       "                                                         ",
       "                                                         ",
       "                                                      __|",
       "                                                   __|( )",
       "                                          ________|( )Oo ",
-      "                                             ..,, (O))    ",
+      "                                             ..,, (O))   ",
       "                                                         ",
       "                                                         ",
       "                                                         ",
@@ -544,7 +552,14 @@
     ]
   },
   "E3": {
-    "objectives": {},
+    "items": {
+      "oldieoil": {
+        "description": "You knock on the door of the Lux A Lot Inn\nAn old man yells from inside 'We aren't open today, I'm trying to sell all my leftover OldieOil'\nYou get the sense he will only sell it to a truly well robed peasant.",
+        "prereqs": "robe",
+        "noprereqs": "You ask for some oil but the old man slams the door in your face.\n'YOU AINT NO PEASANT'\nBetter get dressed up before you go knockin again\nWhat do you do ??:",
+        "get": "The old man peeps out, sees a peasantly figure standing in the doorway.\n'Ah yes a TRUE peasant' he declares and attemps to hand you the oldie oil\nHis hands shake so bad that it pours all over you instead\nYou are now an oily mess\nWhat do you do ??:"
+      }
+    },
     "exit": {
       "west": "D3",
       "north": "E2",
@@ -574,7 +589,14 @@
     ]
   },
   "E4": {
-    "objectives": {},
+    "items": {
+      "lantern": {
+        "description": "an old burnenated tree\nHanging from the tree is a surprisingly unscathed lantern\n",
+        "prereqs": "OldieOil",
+        "noprereqs": "You could get the lantern... but like really why?\nIt wouldn't set you on fire unless you were smattered in oil or something like that\nWhat do you do ??:",
+        "get": "You reach up on your tippiest of toes and the lantern falls right on you.\nNow all covered in oil you are WILDLY flammable, on the plus side you are now ON FIRE like a peasant\nWhat do you do ??:"
+      }
+    },
     "exit": {
       "north": "E3",
       "west": "D4"
@@ -603,7 +625,13 @@
     ]
   },
   "Trog_lair": {
-    "objectives": [],
+    "items": {
+      "trogdor": {
+        "description": "You see him, the great beast who has caused your woes!! TIME TO GET HIM (that is if you are prepared)...",
+        "prereqs": "None",
+        "get": "You wield your sword and in a flash of light you slay the mighty beast....It does zero damage, I mean did you think you could really kill a dragon?? You are a peasant boy... but you got so close, brownie points for trying!"
+      }
+    },
     "exit": {},
     "map": [
       "*********************************************************",

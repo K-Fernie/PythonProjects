@@ -7,6 +7,7 @@ from operator import contains, truediv
 from travelAnimation import load_animation
 from helperFunctions import textInteract, enter_is_terminate   
 from Objectives import Objectives
+from PIL import Image
 
 """
 The user is sent to the death screen for three different death events:
@@ -14,7 +15,6 @@ The user is sent to the death screen for three different death events:
 2. Killed by the Johnka
 3. Facing Trogdor too soon
 """
-
 def deadGuy(screen):
     
     #initiating the screen
@@ -68,7 +68,13 @@ def deadGuy(screen):
 
     curses.endwin()
        
-
+"""
+Initializing game play for Peasants Quest
+The goal is to get all the items needed to:
+1. Dress like a peasant
+2. Stink like a peasant
+3. Be on fire like a peasant
+"""
 def gameStart(screen,heroloc):
     """Setting the screen for the game play"""
     
@@ -299,7 +305,10 @@ def gameStart(screen,heroloc):
           
             if hero in killZone:
                 close_screen = True 
-                
+
+        if "trogdor" in dashing.inventory:
+            close_screen = True
+
     curses.endwin()
     if close_screen == True:
         deadGuy("Dead_Screen")            
@@ -308,7 +317,7 @@ def gameStart(screen,heroloc):
 #TODO - Add comments
 #TODO- Move helper functions to a separate file
 #TODO- If user types "Save" save the current status of dashing in a local text file
-#TODO- 
+#TODO- If you don't have the sword remove the exit to the troglair and tell player they can only enter the cave if they are armed
 # initiating separate from main for testing purposes only
 
 #deadGuy("Dead_Screen") 
