@@ -1,5 +1,5 @@
 """
-gameStart is where the game is initialized.
+game_start is where the game is initialized.
 The Game screen and the death screen are shown as needed during the game loop
 """
 import curses
@@ -60,7 +60,7 @@ def deadGuy(screen):
                     dashing.fire = False
                     dashing.stink = False
                     dashObjectives.objectiveDict = dashObjectivesCopy
-                    gameStart("B3", [15,5])
+                    game_start("B3", [15,5])
                 elif contRes == "n":
                     close_screen = True
                 else:
@@ -75,7 +75,7 @@ The goal is to get all the items needed to:
 2. Stink like a peasant
 3. Be on fire like a peasant
 """
-def gameStart(screen,heroloc):
+def game_start(screen,heroloc):
     """Setting the screen for the game play"""
     dashing.storyframe = screen
     #initiating the screen
@@ -94,18 +94,18 @@ def gameStart(screen,heroloc):
     win.refresh()
 
     #Initiating list to track the current map's obstacles
-    obsList = []
+    obs_list = []
     #create view and create obstacle list
     for i in range(1,20):
         win.addstr(i,1,dashObjectives.objectiveDict[screen]["map"][i])
         for j in range(len(dashObjectives.objectiveDict[screen]["map"][i])):
             if dashObjectives.objectiveDict[screen]["map"][i][j] != " ":
-                obsList.append([i,j+1])
+                obs_list.append([i,j+1])
 
 
-    heroImg = '\u265E'
+    hero_img = '\u265E'
     hero = list(heroloc)
-    win.addch(hero[0], hero[1], heroImg)
+    win.addch(hero[0], hero[1], hero_img)
 
     #Extra data for if the screen is "C4" with the Kerrek
     if screen == "C4" or screen == "B1" and "belt" not in dashing.inventory:
@@ -174,18 +174,18 @@ def gameStart(screen,heroloc):
 
                 if y == 20:
                     curses.endwin()
-                    gameStart(dashObjectives.objectiveDict[screen]["exit"].get("south"),[1,30])
+                    game_start(dashObjectives.objectiveDict[screen]["exit"].get("south"),[1,30])
                     break
                 elif y == 19 and (x >= 25 and x < 35) and south_exit:
                     win.addch(hero[0], hero[1], " ")
                     hero[0] = y
-                    win.addch(hero[0], hero[1], heroImg)
-                elif y == 19 or [y,x] in obsList:
+                    win.addch(hero[0], hero[1], hero_img)
+                elif y == 19 or [y,x] in obs_list:
                     pass
                 else:
                     win.addch(hero[0], hero[1], " ")
                     hero[0] = y
-                    win.addch(hero[0], hero[1], heroImg)
+                    win.addch(hero[0], hero[1], hero_img)
             except:
                 pass
         #Ability to move the character 
@@ -195,18 +195,18 @@ def gameStart(screen,heroloc):
                 #This is the North Exit
                 if y==0:
                     curses.endwin()
-                    gameStart(dashObjectives.objectiveDict[screen]["exit"].get("north"),[19,30])
+                    game_start(dashObjectives.objectiveDict[screen]["exit"].get("north"),[19,30])
                     break
                 if y == 1 and (x >= 25 and x < 35) and north_exit:
                     win.addch(hero[0], hero[1], " ")
                     hero[0] = y
-                    win.addch(hero[0], hero[1], heroImg)
-                elif y == 1 or [y,x] in obsList:
+                    win.addch(hero[0], hero[1], hero_img)
+                elif y == 1 or [y,x] in obs_list:
                     pass
                 else:
                     win.addch(hero[0], hero[1], " ")
                     hero[0] = y
-                    win.addch(hero[0], hero[1], heroImg)
+                    win.addch(hero[0], hero[1], hero_img)
             except:
                 pass
 
@@ -215,18 +215,18 @@ def gameStart(screen,heroloc):
             try:
                 if x == 0:
                     curses.endwin()
-                    gameStart(dashObjectives.objectiveDict[screen]["exit"].get("west"),[10,58])
+                    game_start(dashObjectives.objectiveDict[screen]["exit"].get("west"),[10,58])
                     break
                 elif x == 1 and (y >= 8 and y < 12) and west_exit:
                     win.addch(hero[0], hero[1], " ")
                     hero[1] = x
-                    win.addch(hero[0], hero[1], heroImg)
-                elif x == 1 or [y,x] in obsList:
+                    win.addch(hero[0], hero[1], hero_img)
+                elif x == 1 or [y,x] in obs_list:
                     pass
                 else:
                     win.addch(hero[0], hero[1], " ")
                     hero[1] = x
-                    win.addch(hero[0], hero[1], heroImg)
+                    win.addch(hero[0], hero[1], hero_img)
             except:
                 pass
 
@@ -235,18 +235,18 @@ def gameStart(screen,heroloc):
             try:
                 if x == 59:
                     curses.endwin()
-                    gameStart(dashObjectives.objectiveDict[screen]["exit"].get("east"),[10,1])
+                    game_start(dashObjectives.objectiveDict[screen]["exit"].get("east"),[10,1])
                     break
                 elif x == 58 and (y >= 8 and y < 12) and east_exit:
                     win.addch(hero[0], hero[1], " ")
                     hero[1] = x
-                    win.addch(hero[0], hero[1], heroImg)
-                elif x == 58 or [y,x] in obsList:
+                    win.addch(hero[0], hero[1], hero_img)
+                elif x == 58 or [y,x] in obs_list:
                     pass
                 else:
                     win.addch(hero[0], hero[1], " ")
                     hero[1] = x
-                    win.addch(hero[0], hero[1], heroImg)
+                    win.addch(hero[0], hero[1], hero_img)
             except:
                 pass
 
@@ -315,4 +315,4 @@ def gameStart(screen,heroloc):
         deadGuy("Dead_Screen")
 
 #deadGuy("Dead_Screen")
-#gameStart("B3",[15,5])
+#game_start("B3",[15,5])

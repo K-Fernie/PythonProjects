@@ -5,7 +5,7 @@ import os
 import pickle
 from art import tprint, aprint
 from travelAnimation import load_animation
-from gameStart import gameStart
+from gameStart import game_start
 from globalData import stringResponses, dashing
 
 def main():
@@ -31,7 +31,7 @@ def main():
                     dashing.dress = peasant_new.dress
                     dashing.fire = peasant_new.fire
                     dashing.stink = peasant_new.stink
-                    gameStart(peasant_new.storyframe,[15,5])
+                    game_start(peasant_new.storyframe,[15,5])
                 else:
                     os.system("clear")
                     load_animation("Booting sad peasantry....")
@@ -42,7 +42,7 @@ def main():
                     if begin.lower() != "q":
                         os.system("clear")
                         load_animation("Awaaaay we goooo....")
-                        gameStart('B3',[15,5])
+                        game_start('B3',[15,5])
 
         except pickle.PickleError:
             pass
@@ -59,7 +59,7 @@ def main():
         if begin.lower() != "q":
             os.system("clear")
             load_animation("Awaaaay we goooo....")
-            gameStart('B3',[15,5])
+            game_start('B3',[15,5])
     else:
         print("Come back again... if you are peasanty enough!!")
 
