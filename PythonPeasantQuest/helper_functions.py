@@ -159,11 +159,11 @@ def load_animation(strAnimate):
         y=0
 
         if x != 32 and x != 46:    
-                if x>90:
-                    y = x-32
-                else:
-                    y = x + 32
-                load_str_list[i]= chr(y)
+            if x>90:
+                y = x-32
+            else:
+                y = x + 32
+            load_str_list[i]= chr(y)
 
         res =''
         for j in range(ls_len):
