@@ -130,10 +130,10 @@ def gameStart(screen,heroloc):
         win.addstr(20, 2, f' {screen} ')
 
         #Determining Exit Locations and adding exits accordingly
-        northExit,westExit,southExit,eastExit = False, False, False, False
+        north_exit,west_exit,south_exit,east_exit = False, False, False, False
         if "north" in dashObjectives.objectiveDict[screen]["exit"]:
             win.addstr(0, 25, ' Exit North ')
-            northExit = True
+            north_exit = True
 
         if "east" in dashObjectives.objectiveDict[screen]["exit"]:
             win.addch(7, 59, ' ')
@@ -142,7 +142,7 @@ def gameStart(screen,heroloc):
             win.addch(10, 59, 's')
             win.addch(11, 59, 't')
             win.addch(12, 59, ' ')
-            eastExit = True
+            east_exit = True
 
         if "west" in dashObjectives.objectiveDict[screen]["exit"]:
             win.addch(7, 0, ' ')
@@ -151,11 +151,11 @@ def gameStart(screen,heroloc):
             win.addch(10, 0, 's')
             win.addch(11,0, 't')
             win.addch(12, 0, ' ')
-            westExit = True
+            west_exit = True
 
         if "south" in dashObjectives.objectiveDict[screen]["exit"]:
             win.addstr(20, 25, ' Exit South ')
-            southExit = True
+            south_exit = True
 
         event = win.getch()
 
@@ -176,7 +176,7 @@ def gameStart(screen,heroloc):
                     curses.endwin()
                     gameStart(dashObjectives.objectiveDict[screen]["exit"].get("south"),[1,30])
                     break
-                elif y == 19 and (x >= 25 and x < 35) and southExit:
+                elif y == 19 and (x >= 25 and x < 35) and south_exit:
                     win.addch(hero[0], hero[1], " ")
                     hero[0] = y
                     win.addch(hero[0], hero[1], heroImg)
@@ -197,7 +197,7 @@ def gameStart(screen,heroloc):
                     curses.endwin()
                     gameStart(dashObjectives.objectiveDict[screen]["exit"].get("north"),[19,30])
                     break
-                if y == 1 and (x >= 25 and x < 35) and northExit:
+                if y == 1 and (x >= 25 and x < 35) and north_exit:
                     win.addch(hero[0], hero[1], " ")
                     hero[0] = y
                     win.addch(hero[0], hero[1], heroImg)
@@ -217,7 +217,7 @@ def gameStart(screen,heroloc):
                     curses.endwin()
                     gameStart(dashObjectives.objectiveDict[screen]["exit"].get("west"),[10,58])
                     break
-                elif x == 1 and (y >= 8 and y < 12) and westExit:
+                elif x == 1 and (y >= 8 and y < 12) and west_exit:
                     win.addch(hero[0], hero[1], " ")
                     hero[1] = x
                     win.addch(hero[0], hero[1], heroImg)
@@ -237,7 +237,7 @@ def gameStart(screen,heroloc):
                     curses.endwin()
                     gameStart(dashObjectives.objectiveDict[screen]["exit"].get("east"),[10,1])
                     break
-                elif x == 58 and (y >= 8 and y < 12) and eastExit:
+                elif x == 58 and (y >= 8 and y < 12) and east_exit:
                     win.addch(hero[0], hero[1], " ")
                     hero[1] = x
                     win.addch(hero[0], hero[1], heroImg)
@@ -256,49 +256,49 @@ def gameStart(screen,heroloc):
 
             win.timeout(200)
             win.addstr(kerrekloc[0], kerrekloc[1], kerrek)
-            y1=kerrekloc[0]
-            x1=kerrekloc[1]
+            y_1=kerrekloc[0]
+            x_1=kerrekloc[1]
 
-            if y1 == 19:
+            if y_1 == 19:
                 down = False
 
-            if y1 == 1:
+            if y_1 == 1:
                 down=True
 
-            if x1 == 1:
+            if x_1 == 1:
                 left = False
 
-            if x1 == 59:
+            if x_1 == 59:
                 left = True
 
-            if (y1 != 19 and down) and (x1 != 1 and left):
-                y1+=1
-                x1-=2
+            if (y_1 != 19 and down) and (x_1 != 1 and left):
+                y_1+=1
+                x_1-=2
 
-            elif (y1 != 1 and not down):
-                y1-=1
-                x1+=2
+            elif (y_1 != 1 and not down):
+                y_1-=1
+                x_1+=2
 
             win.addstr(kerrekloc[0], kerrekloc[1], "            ")
-            kerrekloc[0] = y1
-            kerrekloc[1] = x1
+            kerrekloc[0] = y_1
+            kerrekloc[1] = x_1
             win.addstr(kerrekloc[0], kerrekloc[1], kerrek)
 
             #Kerrek's Kill zone
             killZone = [
-            [y1,x1-1],
-            [y1,x1],
-            [y1,x1+1],
-            [y1,x1+2],
-            [y1,x1+3],
-            [y1,x1+4],
-            [y1,x1+5],
-            [y1,x1+6],
-            [y1,x1+7],
-            [y1,x1+8],
-            [y1,x1+9],
-            [y1,x1+10],
-            [y1,x1+10]
+            [y_1,x_1-1],
+            [y_1,x_1],
+            [y_1,x_1+1],
+            [y_1,x_1+2],
+            [y_1,x_1+3],
+            [y_1,x_1+4],
+            [y_1,x_1+5],
+            [y_1,x_1+6],
+            [y_1,x_1+7],
+            [y_1,x_1+8],
+            [y_1,x_1+9],
+            [y_1,x_1+10],
+            [y_1,x_1+10]
             ]
             #Death Conditions
 
