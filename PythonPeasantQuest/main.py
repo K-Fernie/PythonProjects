@@ -20,6 +20,7 @@ def main():
     if start_game.lower() == "y":
         #Try Catch to determine if there is peasant data saved in the file
         try:
+
             with open('PythonPeasantQuest/peasant_data.pkl', 'rb') as peasant_data:
                 peasant_new = pickle.load(peasant_data)
             if peasant_new:
@@ -42,6 +43,7 @@ def main():
                         os.system("clear")
                         load_animation("Awaaaay we goooo....")
                         gameStart('B3',[15,5])
+                        
         except pickle.PickleError:
             pass
         #If no file exists continue with booting the game for the first time UX
