@@ -1,3 +1,7 @@
+"""
+The helper_function module contains functions that are used to 
+process the user input while the program is running
+"""
 import pickle
 from global_data import string_responses, dashing, dash_objectives
 from PIL import Image
@@ -96,6 +100,5 @@ def textInteract(subwin, txtwin, witty_response, location):
         with open('PythonPeasantQuest/peasant_data.pkl', 'wb') as outp:
             pickle.dump(dashing,outp,pickle.HIGHEST_PROTOCOL)
         subRefresh(subwin,txtwin,string_responses["saveSuccess"],location)
-    else: 
+    else:
         subRefresh(subwin,txtwin,string_responses["jerkResponse"], location)
-
