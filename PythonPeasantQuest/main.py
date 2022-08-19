@@ -9,6 +9,25 @@ from helper_functions import load_animation
 from game_start import game_start
 from global_data import string_response, dashing
 
+def new_game():
+    """
+    new_game is called in two separate scenarios:
+    1. A save file exists but user wants to start new
+    2. No save file exists
+    """
+    os.system("clear")
+    load_animation("Booting sad peasantry....")
+    tprint("HOUSE", font="fire_font-s", chr_ignore=True)
+    aprint("at what cost")
+    print(string_response("introText"))
+    begin = input("\nPress ENTER to BEGIN\n")
+    if begin.lower() != "q":
+        os.system("clear")
+        load_animation("Awaaaay we goooo....")
+        game_start('B3',[15,5])
+    else:
+        print("Come back again... if you are peasanty enough!!")
+
 def main():
     """
     The game will start with instructions and determine if a save file exists
@@ -33,16 +52,7 @@ def main():
                     dashing.stink = peasant_new.stink
                     game_start(peasant_new.storyframe,[15,5])
                 else:
-                    os.system("clear")
-                    load_animation("Booting sad peasantry....")
-                    tprint("HOUSE", font="fire_font-s", chr_ignore=True)
-                    aprint("at what cost")
-                    print(string_response("introText"))
-                    begin = input("\nPress ENTER to BEGIN\n")
-                    if begin.lower() != "q":
-                        os.system("clear")
-                        load_animation("Awaaaay we goooo....")
-                        game_start('B3',[15,5])
+                    new_game()
         #exception for an empty file
         except EOFError:
             pass
@@ -53,19 +63,7 @@ def main():
         except FileNotFoundError:
             pass
         #If no file exists continue with booting the game for the first time UX
-        os.system("clear")
-        load_animation("Booting sad peasantry....")
-
-        tprint("HOUSE", font="fire_font-s", chr_ignore=True)
-        aprint("at what cost")
-
-        print(string_response("introText"))
-
-        begin = input("\nPress ENTER to BEGIN\n")
-        if begin.lower() != "q":
-            os.system("clear")
-            load_animation("Awaaaay we goooo....")
-            game_start('B3',[15,5])
+        new_game()
     else:
         print("Come back again... if you are peasanty enough!!")
 
