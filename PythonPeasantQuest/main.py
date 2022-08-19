@@ -24,8 +24,7 @@ def main():
             with open('PythonPeasantQuest/peasant_data.pkl', 'rb') as peasant_data:
                 peasant_new = pickle.load(peasant_data)
             if peasant_new:
-                save_game = input("It looks like there is a saved game,\
-                    would you like to load that game? y/n: ")
+                save_game = input("It looks like there is a saved game, would you like to load that game? y/n: ")
                 if save_game.lower() == "y":
                     dashing.inventory = peasant_new.inventory
                     dashing.dress = peasant_new.dress
@@ -46,6 +45,9 @@ def main():
 
         except EOFError:
             pass
+
+        except pickle.UnpicklingError:
+            os.remove('PythonPeasantQuest/peasant_data.pkl')
         #If no file exists continue with booting the game for the first time UX
         os.system("clear")
         load_animation("Booting sad peasantry....")

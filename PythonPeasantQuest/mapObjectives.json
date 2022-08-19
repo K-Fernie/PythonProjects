@@ -5,7 +5,7 @@
         "description": "a broken arrow slightly shoved into a\ntree. You could probably wiggle it out... if a certain\nDonkey wasn't demon eyeing you from accross the way.\n",
         "prereqs": "maskus",
         "noprereqs": "The donkey huffs at you, its demon eyes glow red.\nBetter not steal what seems to be its favorite broken\narrow.\nWhat do you do ??:",
-        "get": "You take out your monster maskus and slip it on, and hot\ndang you are one spooky dude!The donkey is too spookified by your maskus to attack\nIt allows you to steal its most favorite arrow, since\nit's too busy being scared and stuff.Now you are more armed for battle than you usta' be\nWhat do you do ??:"
+        "get": "You take out your monster maskus and slip it on, and hot\ndang you are one spooky dude!The donkey is too spookified by your maskus to\nattack. It allows you to steal its most favorite arrow, since\nit's too busy being scared and stuff.Now you are more armed for battle than you usta' be\nWhat do you do ??:"
       }
     },
     "exit": {
@@ -124,7 +124,8 @@
       }
     },
     "exit": {
-      "north": "A3"
+      "north": "A3",
+      "east": "B4"
     },
     "map": [
       "                                                         ",
@@ -418,7 +419,8 @@
     },
     "exit": {
       "north": "C3",
-      "east": "D4"
+      "east": "D4",
+      "west": "B4"
     },
     "map": [
       "                                                         ",
@@ -591,7 +593,7 @@
     "items": {
       "lantern": {
         "description": "an old burnenated tree\nHanging from the tree is a surprisingly unscathed lantern\n",
-        "prereqs": "OldieOil",
+        "prereqs": "oldieoil",
         "noprereqs": "You could get the lantern... but like really why?\nIt wouldn't set you on fire unless you were smattered\nin oil or something like that.\nWhat do you do ??:",
         "get": "You reach up on your tippiest of toes and the lantern\nfalls right on you.\nNow that you are all covered in oil you are WILDLY\nflammable, on the plus side you are now ON FIRE like\na peasant.\nWhat do you do ??:"
       }
@@ -631,7 +633,7 @@
         "get": "You wield your sword and in a flash of light you stab at\nthe mighty beast....It does zero damage.. I mean did you\nthink you could really kill a dragon?? You are a peasant\nboy. Like you aren't even a knight!\nBut you got so close, A for effort... you still get\nburnenated though! FWOOOOOSH FIRE\n"
       }
     },
-    "exit": {},
+    "exit": { "west": "B3" },
     "map": [
       "*********************************************************",
       "                        /,                    .:::::    ",

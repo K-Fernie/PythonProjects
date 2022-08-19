@@ -3,8 +3,8 @@ from global_data import string_responses, dashing, dash_objectives
 from PIL import Image
 
 
-def getMap(mapLocation):
-    return f'PythonPeasantQuest\images\{mapLocation}.png'
+def getMap(map_location):
+    return f'PythonPeasantQuest\images\{map_location}.png'
 
 def enter_is_terminate(x):
     if x == 10:
@@ -95,6 +95,7 @@ def textInteract(subwin, txtwin, witty_response, location):
     elif contRes == "save":
         with open('PythonPeasantQuest/peasant_data.pkl', 'wb') as outp:
             pickle.dump(dashing,outp,pickle.HIGHEST_PROTOCOL)
+        subRefresh(subwin,txtwin,string_responses["saveSuccess"],location)
     else: 
         subRefresh(subwin,txtwin,string_responses["jerkResponse"], location)
 

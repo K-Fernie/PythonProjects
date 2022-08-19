@@ -49,7 +49,9 @@ string_responses = {
 
         "mapResponse":"Now that you know where you are....\nWhat do you do ??:",
 
-        "playAgain": "Would you like to play again y/n ??:"
+        "playAgain": "Would you like to play again y/n ??:",
+
+        "saveSuccess":"Your game has been successfully saved to the single save\nslot!\nWhat do you do ??:"
 
 }
 
