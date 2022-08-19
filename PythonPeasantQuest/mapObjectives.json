@@ -9,7 +9,8 @@
       }
     },
     "exit": {
-      "south": "A2"
+      "south": "A2",
+      "east": "B1"
     },
     "map": [
       "                                                         ",
@@ -148,6 +149,45 @@
       "                                                         "
     ]
   },
+  "B1": {
+    "items": {
+      "belt": {
+        "description": "a big ol kerrek comin at you\nMom always said 'don't ye mess with them kerreks'\nBest to stay away until you have a weapon.\nBut hey, he's got a nice belt!",
+        "prereqs": "supertimefunbow",
+        "noprereqs": "Well, that's an extremely stupid move... seeing as the belt is attached to a living breathing kerrek\nWhat do you do ??: ",
+        "get": "You pull out the bow, the arrow lined up nicely and you SLAY the kerrek where he stands\nGosh this dude REALLY stank! You take his nifty belt and put it on YOU NOW STINK LIKE A PEASANT"
+      }
+    },
+    "exit": {
+      "west": "A1",
+      "south": "B2",
+      "east": "C1"
+    },
+    "map": [
+      "                                                         ",
+      "    KERREK ATTACK!!                                      ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         ",
+      "                                          w              ",
+      "                                      w                  ",
+      "                                  w                      ",
+      "                          w     w                        ",
+      "             w     w    w                                ",
+      "           w    w                                        ",
+      "                                                         ",
+      "                                                         ",
+      "                                                         "
+    ]
+  },
   "B2": {
     "items": {
       "muddy": {
@@ -158,6 +198,7 @@
       }
     },
     "exit": {
+      "north": "B1",
       "west": "A2",
       "east": "C2",
       "south": "B3"
@@ -266,7 +307,8 @@
       }
     },
     "exit": {
-      "south": "C2"
+      "south": "C2",
+      "west": "B1"
     },
     "map": [
       "                                                         ",
@@ -373,7 +415,7 @@
     },
     "map": [
       "                                                         ",
-      "                                                         ",
+      "    KERREK ATTACK!!                                      ",
       "                                                         ",
       "                                                         ",
       "                                                         ",
@@ -456,10 +498,14 @@
     ]
   },
   "E2": {
-    "objectives": {},
+    "items": {
+      "one_you_cant_get": {
+        "description": "the looming path to TrogBoy's lair\nYou remember that you can only go in if you STINK like a peasant, DRESS like a peasant, and are on FIRE like a peasant\nJust make sure or else he will for sure burninate you"
+      }
+    },
     "exit": {
       "south": "E3",
-      "east": "Trog_Lair"
+      "east": "Trog_lair"
     },
     "map": [
       "                                                         ",
@@ -545,9 +591,7 @@
   },
   "Trog_lair": {
     "objectives": [],
-    "exit": {
-      "west": "none"
-    },
+    "exit": {},
     "map": [
       "*********************************************************",
       "                        /,                    .:::::    ",

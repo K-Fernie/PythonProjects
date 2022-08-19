@@ -1,5 +1,7 @@
 import json
+import copy
 from Peasant import Peasant
+from Objectives import Objectives
 
 global stringResponses 
 stringResponses = {
@@ -59,6 +61,8 @@ stringResponses = {
 
         "mapResponse":"Now that you know where you are....\nWhat do you do ??:",
 
+        "playAgain": "Would you like to play again y/n ??:"
+
 }
 
 global getMap
@@ -68,7 +72,9 @@ def getMap(mapLocation):
 global dashing
 dashing = Peasant("Dashing", "B3", [], False, False, False)
 
-global mapObjectives
+
 with open('PythonPeasantQuest\mapObjectives.json', 'r') as objectiveFile:
     mapObjectives = json.load(objectiveFile)
-          
+
+dashObjectives = Objectives(mapObjectives)
+dashObjectivesCopy = copy.deepcopy(mapObjectives)           
