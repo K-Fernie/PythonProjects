@@ -32,11 +32,11 @@ def look_item(subwin,txtwin, location):
     2. a prompt that there's nothing left to see and to move on
     """
     item_count = 0
-    itemKey = dash_objectives.objectiveDict[location]["items"]
+    item_key = dash_objectives.objectiveDict[location]["items"]
     print_string = ""
-    if itemKey:
-        for item in itemKey:
-            description = itemKey[item]["description"]
+    if item_key:
+        for item in item_key:
+            description = item_key[item]["description"]
             if item_count == 0:
                 print_string+=f"You look and see {description}"
                 item_count += 1
@@ -47,13 +47,14 @@ def look_item(subwin,txtwin, location):
     else:
         sub_refresh(subwin,txtwin,string_responses["objCompleteLook"],location)
 
-"""
-get_item allows the user to get the available item
-this get can only be done if the user has the prerequisites
-if the user does not have the prerequisites they are returned the 
-noprereqs string and the item is not appended to their inventory
-"""
+
 def get_item(subwin,txtwin,location,item):
+    """
+    get_item allows the user to get the available item
+    this get can only be done if the user has the prerequisites
+    if the user does not have the prerequisites they are returned the 
+    noprereqs string and the item is not appended to their inventory
+    """
     item_objv = dash_objectives.objectiveDict[location]["items"]
 
     if item in item_objv and item not in dashing.inventory:
@@ -79,27 +80,28 @@ def get_item(subwin,txtwin,location,item):
         response = "You can't get that, What do you do ??:"
         sub_refresh(subwin,txtwin,response,location)
 
-"""
-sub_refresh is a middle function that refreshes the text box
-"""
+
 def sub_refresh(subwin, txtwin, witty_response, location):
+    """
+    sub_refresh is a middle function that refreshes the text box
+    """
     subwin.clear()
     subwin.refresh()
     text_interact(subwin, txtwin, witty_response, location)
 
-"""
-text_interact is used to do the following
-1. start the text box
-2. capture user entry
-3. call the appropriate function based on user entry
-"""
-def text_interact(subwin, txtwin, witty_response, location):
 
+def text_interact(subwin, txtwin, witty_response, location):
+    """
+    text_interact is used to do the following
+    1. start the text box
+    2. capture user entry
+    3. call the appropriate function based on user entry
+    """
     subwin.addstr(witty_response)
     txtwin.edit(enter_is_terminate)
     contents = txtwin.gather()
-    contInterim = contents.split("??:", 1)[1]
-    cont_res = "".join(contInterim).strip().lower()
+    cont_interim = contents.split("??:", 1)[1]
+    cont_res = "".join(cont_interim).strip().lower()
 
     if cont_res == "map":
         if "map" in dashing.inventory:
