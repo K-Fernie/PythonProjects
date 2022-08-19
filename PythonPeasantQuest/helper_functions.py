@@ -21,11 +21,11 @@ def lookItem(subwin,txtwin, location):
             if itemCount == 0:
                 printstring+=f"You look and see {description}"
                 itemCount += 1
-            else: 
+            else:
                 printstring+=f" and {description}\n"
         printstring += "What do you do ??:"
         subRefresh(subwin,txtwin,printstring,location)
-    else: 
+    else:
         subRefresh(subwin,txtwin,string_responses["objCompleteLook"],location)
 
 def getItem(subwin,txtwin,location,item):
@@ -37,20 +37,20 @@ def getItem(subwin,txtwin,location,item):
             response = itemObj[item]["get"]
             del itemObj[item]
             dashing.inventory.append(item)
-        else: 
+        else:
             response = itemObj[item]["noprereqs"]
         subRefresh(subwin,txtwin,response,location)
 
         #Checking that the items for trogdor win conditions are present and updating accordingly
-        if "belt" in dashing.inventory: 
+        if "belt" in dashing.inventory:
             dashing.stink = True
         if "robe" in dashing.inventory:
             dashing.dress = True
         if "lantern" in dashing.inventory:
             dashing.fire = True
-        
 
-    else: 
+
+    else:
         response = "You can't get that, What do you do ??:"
         subRefresh(subwin,txtwin,response,location)
 
@@ -68,10 +68,10 @@ def textInteract(subwin, txtwin, witty_response, location):
     contents = txtwin.gather()
     contInterim = contents.split("??:", 1)[1]
     contRes = "".join(contInterim).strip().lower()
-    
+
     if contRes == "map":
         if "map" in dashing.inventory:
-            with Image.open(getMap(location)) as img: 
+            with Image.open(getMap(location)) as img:
                 img.show()
             subRefresh(subwin,txtwin,string_responses["mapResponse"],location)
         else:
@@ -87,7 +87,7 @@ def textInteract(subwin, txtwin, witty_response, location):
     elif "get" in contRes:
         getItem(subwin,txtwin,location,contRes[4:])
 
-    elif contRes == "help": 
+    elif contRes == "help":
         subRefresh(subwin,txtwin,string_responses["simpleInstructions"], location)
 
     elif contRes == "done":
