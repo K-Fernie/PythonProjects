@@ -1,5 +1,5 @@
 import pickle
-from globalData import stringResponses, dashing, dashObjectives
+from global_data import string_responses, dashing, dash_objectives
 from PIL import Image
 
 
@@ -13,7 +13,7 @@ def enter_is_terminate(x):
 
 def lookItem(subwin,txtwin, location):
     itemCount = 0
-    itemKey = dashObjectives.objectiveDict[location]["items"]
+    itemKey = dash_objectives.objectiveDict[location]["items"]
     printstring = ""
     if itemKey:
         for item in itemKey:
@@ -26,10 +26,10 @@ def lookItem(subwin,txtwin, location):
         printstring += "What do you do ??:"
         subRefresh(subwin,txtwin,printstring,location)
     else: 
-        subRefresh(subwin,txtwin,stringResponses["objCompleteLook"],location)
+        subRefresh(subwin,txtwin,string_responses["objCompleteLook"],location)
 
 def getItem(subwin,txtwin,location,item):
-    itemObj = dashObjectives.objectiveDict[location]["items"]
+    itemObj = dash_objectives.objectiveDict[location]["items"]
 
     if item in itemObj and item not in dashing.inventory:
         prereqs = itemObj[item]["prereqs"]
@@ -73,9 +73,9 @@ def textInteract(subwin, txtwin, witty_response, location):
         if "map" in dashing.inventory:
             with Image.open(getMap(location)) as img: 
                 img.show()
-            subRefresh(subwin,txtwin,stringResponses["mapResponse"],location)
+            subRefresh(subwin,txtwin,string_responses["mapResponse"],location)
         else:
-            subRefresh(subwin,txtwin,stringResponses["dontGotIt"],location)
+            subRefresh(subwin,txtwin,string_responses["dontGotIt"],location)
 
     elif contRes == "inventory":
         inv = f"Inventory: {dashing.inventory}\nWhat do you do ??: "
@@ -88,7 +88,7 @@ def textInteract(subwin, txtwin, witty_response, location):
         getItem(subwin,txtwin,location,contRes[4:])
 
     elif contRes == "help": 
-        subRefresh(subwin,txtwin,stringResponses["simpleInstructions"], location)
+        subRefresh(subwin,txtwin,string_responses["simpleInstructions"], location)
 
     elif contRes == "done":
         pass
@@ -96,5 +96,5 @@ def textInteract(subwin, txtwin, witty_response, location):
         with open('PythonPeasantQuest/peasant_data.pkl', 'wb') as outp:
             pickle.dump(dashing,outp,pickle.HIGHEST_PROTOCOL)
     else: 
-        subRefresh(subwin,txtwin,stringResponses["jerkResponse"], location)
+        subRefresh(subwin,txtwin,string_responses["jerkResponse"], location)
 

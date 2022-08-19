@@ -4,8 +4,8 @@ The Game screen and the death screen are shown as needed during the game loop
 """
 import curses
 from curses.textpad import Textbox
-from globalData import stringResponses,dashing, dashObjectives, dashObjectivesCopy
-from helperFunctions import textInteract, enter_is_terminate
+from global_data import string_responses,dashing, dash_objectives, dash_objectives_copy
+from helper_functions import textInteract, enter_is_terminate
 
 
 """
@@ -34,7 +34,7 @@ def dead_guy(screen):
     win.refresh()
 
     for i in range(1,20):
-        win.addstr(i,1,dashObjectives.objectiveDict[screen]["map"][i])
+        win.addstr(i,1,dash_objectives.objectiveDict[screen]["map"][i])
 
     #Setting boolean to break the game loop
     close_screen = False
@@ -52,7 +52,7 @@ def dead_guy(screen):
             curses.beep()
             close_screen = True
         if event == curses.KEY_HOME:
-            sub_2.addstr(stringResponses["playAgain"])
+            sub_2.addstr(string_responses["playAgain"])
             txt_box.edit(enter_is_terminate)
             contents = txt_box.gather().split("??:", 1)[1]
             cont_res = "".join(contents).strip().lower()
@@ -61,7 +61,7 @@ def dead_guy(screen):
                 dashing.dress = False
                 dashing.fire = False
                 dashing.stink = False
-                dashObjectives.objectiveDict = dashObjectivesCopy
+                dash_objectives.objectiveDict = dash_objectives_copy
                 game_start("B3", [15,5])
             elif cont_res == "n":
                 close_screen = True
@@ -99,9 +99,9 @@ def game_start(screen,heroloc):
     obs_list = []
     #create view and create obstacle list
     for i in range(1,20):
-        win.addstr(i,1,dashObjectives.objectiveDict[screen]["map"][i])
-        for j in range(len(dashObjectives.objectiveDict[screen]["map"][i])):
-            if dashObjectives.objectiveDict[screen]["map"][i][j] != " ":
+        win.addstr(i,1,dash_objectives.objectiveDict[screen]["map"][i])
+        for j in range(len(dash_objectives.objectiveDict[screen]["map"][i])):
+            if dash_objectives.objectiveDict[screen]["map"][i][j] != " ":
                 obs_list.append([i,j+1])
 
 
@@ -132,11 +132,11 @@ def game_start(screen,heroloc):
 
         #Determining Exit Locations and adding exits accordingly
         north_exit,west_exit,south_exit,east_exit = False, False, False, False
-        if "north" in dashObjectives.objectiveDict[screen]["exit"]:
+        if "north" in dash_objectives.objectiveDict[screen]["exit"]:
             win.addstr(0, 25, ' Exit North ')
             north_exit = True
 
-        if "east" in dashObjectives.objectiveDict[screen]["exit"]:
+        if "east" in dash_objectives.objectiveDict[screen]["exit"]:
             win.addch(7, 59, ' ')
             win.addch(8, 59, 'E')
             win.addch(9, 59, 'a')
@@ -145,7 +145,7 @@ def game_start(screen,heroloc):
             win.addch(12, 59, ' ')
             east_exit = True
 
-        if "west" in dashObjectives.objectiveDict[screen]["exit"]:
+        if "west" in dash_objectives.objectiveDict[screen]["exit"]:
             win.addch(7, 0, ' ')
             win.addch(8, 0, 'W')
             win.addch(9,0, 'e')
@@ -154,7 +154,7 @@ def game_start(screen,heroloc):
             win.addch(12, 0, ' ')
             west_exit = True
 
-        if "south" in dashObjectives.objectiveDict[screen]["exit"]:
+        if "south" in dash_objectives.objectiveDict[screen]["exit"]:
             win.addstr(20, 25, ' Exit South ')
             south_exit = True
 
@@ -168,14 +168,14 @@ def game_start(screen,heroloc):
             curses.beep()
             close_screen = True
         if event == curses.KEY_HOME:
-            textInteract(sub_2, txt_box, stringResponses["screenInitText"], screen)
+            textInteract(sub_2, txt_box, string_responses["screenInitText"], screen)
         if event == curses.KEY_DOWN:
             y += 1
             try:
 
                 if y == 20:
                     curses.endwin()
-                    game_start(dashObjectives.objectiveDict[screen]["exit"].get("south"),[1,30])
+                    game_start(dash_objectives.objectiveDict[screen]["exit"].get("south"),[1,30])
                     break
                 elif y == 19 and (x >= 25 and x < 35) and south_exit:
                     win.addch(hero[0], hero[1], " ")
@@ -196,7 +196,7 @@ def game_start(screen,heroloc):
                 #This is the North Exit
                 if y==0:
                     curses.endwin()
-                    game_start(dashObjectives.objectiveDict[screen]["exit"].get("north"),[19,30])
+                    game_start(dash_objectives.objectiveDict[screen]["exit"].get("north"),[19,30])
                     break
                 if y == 1 and (x >= 25 and x < 35) and north_exit:
                     win.addch(hero[0], hero[1], " ")
@@ -216,7 +216,7 @@ def game_start(screen,heroloc):
             try:
                 if x == 0:
                     curses.endwin()
-                    game_start(dashObjectives.objectiveDict[screen]["exit"].get("west"),[10,58])
+                    game_start(dash_objectives.objectiveDict[screen]["exit"].get("west"),[10,58])
                     break
                 elif x == 1 and (y >= 8 and y < 12) and west_exit:
                     win.addch(hero[0], hero[1], " ")
@@ -236,7 +236,7 @@ def game_start(screen,heroloc):
             try:
                 if x == 59:
                     curses.endwin()
-                    game_start(dashObjectives.objectiveDict[screen]["exit"].get("east"),[10,1])
+                    game_start(dash_objectives.objectiveDict[screen]["exit"].get("east"),[10,1])
                     break
                 elif x == 58 and (y >= 8 and y < 12) and east_exit:
                     win.addch(hero[0], hero[1], " ")
@@ -306,7 +306,7 @@ def game_start(screen,heroloc):
             if hero in kill_zone:
                 close_screen = True
         if "sword" in dashing.inventory:
-            dashObjectives.objectiveDict["E2"]["exit"]["east"] = "Trog_lair"
+            dash_objectives.objectiveDict["E2"]["exit"]["east"] = "Trog_lair"
 
         if "trogdor" in dashing.inventory:
             close_screen = True

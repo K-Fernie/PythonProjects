@@ -2,8 +2,8 @@ import json
 import copy
 from PeasantClasses import Peasant, Objectives
 
-global stringResponses 
-stringResponses = {
+global string_responses 
+string_responses = {
         
         "complexInstructions" : "1.You will do many things in text mode press the 'home' key to enter text mode\n"\
             "2.Type 'done' and press enter to exit text mode\n"\
@@ -56,11 +56,9 @@ stringResponses = {
 global dashing
 dashing = Peasant("Dashing", "B3", [], False, False, False)
 
-with open('PythonPeasantQuest\mapObjectives.json', 'r') as objectiveFile:
-    mapObjectives = json.load(objectiveFile)
+with open('PythonPeasantQuest\mapObjectives.json', 'r') as objective_file:
+    map_objectives = json.load(objective_file)
 
-dashObjectives = Objectives(mapObjectives)
-dashObjectivesCopy = copy.deepcopy(mapObjectives)
+dash_objectives = Objectives(map_objectives)
+dash_objectives_copy = copy.deepcopy(map_objectives)
 
-def setPeasantData(peasantBool):
-    pass
