@@ -6,7 +6,7 @@ import pickle
 from art import tprint, aprint
 from helper_functions import load_animation
 from game_start import game_start
-from global_data import string_responses, dashing
+from global_data import string_response, dashing
 
 def main():
     """
@@ -15,7 +15,7 @@ def main():
     """
     #initial introduction to PeasCant Quest
     tprint("Let's Quest", font="epic",chr_ignore=True)
-    print(string_responses["complexInstructions"])
+    print(string_response("complexInstructions"))
     start_game = input("Are you ready to begin the quest?? y/n: ")
     if start_game.lower() == "y":
         #Try Catch to determine if there is peasant data saved in the file
@@ -36,7 +36,7 @@ def main():
                     load_animation("Booting sad peasantry....")
                     tprint("HOUSE", font="fire_font-s", chr_ignore=True)
                     aprint("at what cost")
-                    print(string_responses["introText"])
+                    print(string_response("introText"))
                     begin = input("\nPress ENTER to BEGIN\n")
                     if begin.lower() != "q":
                         os.system("clear")
@@ -58,7 +58,7 @@ def main():
         tprint("HOUSE", font="fire_font-s", chr_ignore=True)
         aprint("at what cost")
 
-        print(string_responses["introText"])
+        print(string_response("introText"))
 
         begin = input("\nPress ENTER to BEGIN\n")
         if begin.lower() != "q":

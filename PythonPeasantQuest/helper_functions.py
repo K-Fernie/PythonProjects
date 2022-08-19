@@ -7,7 +7,7 @@ import os
 import time
 import sys
 from PIL import Image
-from global_data import string_responses, dashing, dash_objectives
+from global_data import string_response, dashing, dash_objectives
 
 
 
@@ -48,7 +48,7 @@ def look_item(subwin,txtwin, location):
         print_string += "What do you do ??:"
         sub_refresh(subwin,txtwin,print_string,location)
     else:
-        sub_refresh(subwin,txtwin,string_responses["objCompleteLook"],location)
+        sub_refresh(subwin,txtwin,string_response("objCompleteLook"),location)
 
 
 def get_item(subwin,txtwin,location,item):
@@ -110,9 +110,9 @@ def text_interact(subwin, txtwin, witty_response, location):
         if "map" in dashing.inventory:
             with Image.open(get_map(location)) as img:
                 img.show()
-            sub_refresh(subwin,txtwin,string_responses["mapResponse"],location)
+            sub_refresh(subwin,txtwin,string_response("mapResponse"),location)
         else:
-            sub_refresh(subwin,txtwin,string_responses["dontGotIt"],location)
+            sub_refresh(subwin,txtwin,string_response("dontGotIt"),location)
 
     elif cont_res == "inventory":
         inv = f"Inventory: {dashing.inventory}\nWhat do you do ??: "
@@ -125,16 +125,16 @@ def text_interact(subwin, txtwin, witty_response, location):
         get_item(subwin,txtwin,location,cont_res[4:])
 
     elif cont_res == "help":
-        sub_refresh(subwin,txtwin,string_responses["simpleInstructions"], location)
+        sub_refresh(subwin,txtwin,string_response("simpleInstructions"), location)
 
     elif cont_res == "done":
         pass
     elif cont_res == "save":
         with open('PythonPeasantQuest/peasant_data.pkl', 'wb') as outp:
             pickle.dump(dashing,outp,pickle.HIGHEST_PROTOCOL)
-        sub_refresh(subwin,txtwin,string_responses["saveSuccess"],location)
+        sub_refresh(subwin,txtwin,string_response("saveSuccess"),location)
     else:
-        sub_refresh(subwin,txtwin,string_responses["jerkResponse"], location)
+        sub_refresh(subwin,txtwin,string_response("jerkResponse"), location)
 
 def load_animation(strAnimate):
     """

@@ -4,7 +4,7 @@ The Game screen and the death screen are shown as needed during the game loop
 """
 import curses
 from curses.textpad import Textbox
-from global_data import string_responses,dashing, dash_objectives, dash_objectives_copy
+from global_data import string_response,dashing, dash_objectives, dash_objectives_copy
 from helper_functions import text_interact, enter_is_terminate
 
 
@@ -50,7 +50,7 @@ def dead_guy(screen):
             curses.beep()
             close_screen = True
         if event == curses.KEY_HOME:
-            sub_2.addstr(string_responses["playAgain"])
+            sub_2.addstr(string_response("playAgain"))
             txt_box.edit(enter_is_terminate)
             contents = txt_box.gather().split("??:", 1)[1]
             cont_res = "".join(contents).strip().lower()
@@ -166,7 +166,7 @@ def game_start(screen,heroloc):
             curses.beep()
             close_screen = True
         if event == curses.KEY_HOME:
-            text_interact(sub_2, txt_box, string_responses["screenInitText"], screen)
+            text_interact(sub_2, txt_box, string_response("screenInitText"), screen)
         if event == curses.KEY_DOWN:
             y += 1
             try:
