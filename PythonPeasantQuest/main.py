@@ -4,7 +4,7 @@ Main function to be run at runtime, this is the only entry point to the game
 import os
 import pickle
 from art import tprint, aprint
-from travelAnimation import load_animation
+from helper_functions import load_animation
 from game_start import game_start
 from global_data import string_responses, dashing
 
