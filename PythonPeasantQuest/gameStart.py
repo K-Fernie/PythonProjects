@@ -110,7 +110,7 @@ def gameStart(screen,heroloc):
     #Extra data for if the screen is "C4" with the Kerrek
     if screen == "C4" or screen == "B1" and "belt" not in dashing.inventory:
         kerrekloc = [2,45]
-        kerrek = "\(⊙ \ _ /◎)/"
+        kerrek = "\\(⊙ \ _ /◎)/"
 
         win.refresh()
         pass
@@ -316,4 +316,3 @@ def gameStart(screen,heroloc):
 
 #deadGuy("Dead_Screen")
 #gameStart("B3",[15,5])
-
