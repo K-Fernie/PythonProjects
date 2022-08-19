@@ -37,7 +37,7 @@ def dead_guy(screen):
         win.addstr(i,1,dashObjectives.objectiveDict[screen]["map"][i])
 
     #Setting boolean to break the game loop
-    close_screen is False
+    close_screen = False
 
     while not close_screen:
         #Clearing and refreshing to capture the screen information for the text screen
@@ -119,9 +119,9 @@ def game_start(screen,heroloc):
 
 
     #Setting booleans for screen control    
-    down is True
-    left is True
-    close_screen is False
+    down = True
+    left = True
+    close_screen = False
     #initiating game loop
     while not close_screen:
         #Clearing and refreshing to capture the screen information for the text screen
