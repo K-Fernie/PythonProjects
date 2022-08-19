@@ -8,15 +8,13 @@ from global_data import string_responses,dashing, dash_objectives, dash_objectiv
 from helper_functions import text_interact, enter_is_terminate
 
 
-"""
-The user is sent to the death screen for three different death events:
-1. Killed by the Kerrek
-2. Killed by the Johnka
-3. Facing Trogdor too soon
-"""
+
 def dead_guy(screen):
     """
-    Dead Guy function is called when a game ending event occurs
+    The user is sent to the death screen for three different death events:
+    1. Killed by the Kerrek
+    2. Killed by the Johnka
+    3. Facing Trogdor too soon
     """
     #initiating the screen
     curses.initscr()
