@@ -5,10 +5,7 @@ from curses import wrapper
 from curses.textpad import Textbox, rectangle
 from operator import contains, truediv
 from travelAnimation import load_animation
-from Peasant import Peasant
-from PIL import Image
 from helperFunctions import textInteract, enter_is_terminate   
-import json
 from Objectives import Objectives
 
 """

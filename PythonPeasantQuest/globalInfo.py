@@ -65,7 +65,6 @@ stringResponses = {
 
 }
 
-global getMap
 def getMap(mapLocation):
     return f'PythonPeasantQuest\images\{mapLocation}.png'
 
