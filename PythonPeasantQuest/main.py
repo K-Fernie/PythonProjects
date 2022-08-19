@@ -20,14 +20,14 @@ def main():
         try:
             with open('PythonPeasantQuest/peasant_data.pkl', 'rb') as peasant_data:
                 peasant_new = pickle.load(peasant_data)
-            if peasant_new: 
+            if peasant_new:
                 save_game = input("It looks like there is a saved game,\
                     would you like to load that game? y/n: ")
                 if save_game.lower() == "y":
                     dashing.inventory = peasant_new.inventory
                     dashing.dress = peasant_new.dress
                     dashing.fire = peasant_new.fire
-                    dashing.stink = peasant_new.stink 
+                    dashing.stink = peasant_new.stink
                     gameStart(peasant_new.storyframe,[15,5])
                 else: 
                     os.system("clear")
@@ -55,8 +55,8 @@ def main():
         if begin.lower() != "q":
             os.system("clear")
             load_animation("Awaaaay we goooo....")
-            gameStart('B3',[15,5])       
-    else: 
+            gameStart('B3',[15,5])
+    else:
         print("Come back again... if you are peasanty enough!!")
 
 if __name__ == "__main__":
