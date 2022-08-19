@@ -44,7 +44,7 @@ def main():
                         load_animation("Awaaaay we goooo....")
                         game_start('B3',[15,5])
 
-        except pickle.PickleError:
+        except EOFError:
             pass
         #If no file exists continue with booting the game for the first time UX
         os.system("clear")
