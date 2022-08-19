@@ -7,27 +7,30 @@ from PIL import Image
 from global_data import string_responses, dashing, dash_objectives
 
 
-"""
-Get map retuns the map path based on the users current map location
-"""
+
 def get_map(map_location):
+    """
+    Get map retuns the map path based on the users current map location
+    """
     return f'PythonPeasantQuest\images\{map_location}.png'
 
-"""
-enter_is_terminate returns the code for Ctrl+G when the enter key is hit
-"""
+
 def enter_is_terminate(x):
+    """
+    enter_is_terminate returns the code for Ctrl+G when the enter key is hit
+    """
     if x == 10:
         x = 7
     return x
 
-"""
-look_item presents the user with a description string
-the string returned is pulled from dash_objectives and is one of two things
-1. a description of the items available in the area
-2. a prompt that there's nothing left to see and to move on
-"""
+
 def look_item(subwin,txtwin, location):
+    """
+    look_item presents the user with a description string
+    the string returned is pulled from dash_objectives and is one of two things
+    1. a description of the items available in the area
+    2. a prompt that there's nothing left to see and to move on
+    """
     item_count = 0
     itemKey = dash_objectives.objectiveDict[location]["items"]
     print_string = ""
