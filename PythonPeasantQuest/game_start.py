@@ -29,8 +29,8 @@ def dead_guy(screen):
 
     sub = win.subwin(10, 60, 21, 1)
     sub.border()
-    sub2 = sub.subwin(8, 58, 22, 2)
-    tb = curses.textpad.Textbox(sub2)
+    sub_2 = sub.subwin(8, 58, 22, 2)
+    txt_box = curses.textpad.Textbox(sub_2)
     win.refresh()
 
     for i in range(1,20):
@@ -41,8 +41,8 @@ def dead_guy(screen):
 
     while not close_screen:
         #Clearing and refreshing to capture the screen information for the text screen
-        sub2.clear()
-        sub2.refresh()
+        sub_2.clear()
+        sub_2.refresh()
 
         win.addstr(20, 2, f' {screen} ')
 
@@ -52,9 +52,9 @@ def dead_guy(screen):
             curses.beep()
             close_screen = True
         if event == curses.KEY_HOME:
-            sub2.addstr(stringResponses["playAgain"])
-            tb.edit(enter_is_terminate)
-            contents = tb.gather().split("??:", 1)[1]
+            sub_2.addstr(stringResponses["playAgain"])
+            txt_box.edit(enter_is_terminate)
+            contents = txt_box.gather().split("??:", 1)[1]
             cont_res = "".join(contents).strip().lower()
             if cont_res == "y":
                 dashing.inventory = []
@@ -66,7 +66,7 @@ def dead_guy(screen):
             elif cont_res == "n":
                 close_screen = True
             else:
-                sub2.addstr("I didn't get that, would you like to play again ??:")
+                sub_2.addstr("I didn't get that, would you like to play again ??:")
 
     curses.endwin()
 
@@ -91,8 +91,8 @@ def game_start(screen,heroloc):
 
     sub = win.subwin(10, 60, 21, 1)
     sub.border()
-    sub2 = sub.subwin(8, 58, 22, 2)
-    tb = curses.textpad.Textbox(sub2)
+    sub_2 = sub.subwin(8, 58, 22, 2)
+    txt_box = curses.textpad.Textbox(sub_2)
     win.refresh()
 
     #Initiating list to track the current map's obstacles
@@ -118,15 +118,15 @@ def game_start(screen,heroloc):
         pass
 
 
-    #Setting booleans for screen control    
+    #Setting booleans for screen control  
     down = True
     left = True
     close_screen = False
     #initiating game loop
     while not close_screen:
         #Clearing and refreshing to capture the screen information for the text screen
-        sub2.clear()
-        sub2.refresh()
+        sub_2.clear()
+        sub_2.refresh()
 
         win.addstr(20, 2, f' {screen} ')
 
@@ -163,12 +163,12 @@ def game_start(screen,heroloc):
         y = hero[0]
         x = hero[1]
         if screen == "Dead_Screen":
-            dead_guy(sub2, tb)
+            dead_guy(sub_2, txt_box)
         if event == curses.KEY_END:
             curses.beep()
             close_screen = True
         if event == curses.KEY_HOME:
-            textInteract(sub2, tb, stringResponses["screenInitText"], screen)
+            textInteract(sub_2, txt_box, stringResponses["screenInitText"], screen)
         if event == curses.KEY_DOWN:
             y += 1
             try:
@@ -189,7 +189,7 @@ def game_start(screen,heroloc):
                     win.addch(hero[0], hero[1], hero_img)
             except:
                 pass
-        #Ability to move the character 
+        #Ability to move the character
         if event == curses.KEY_UP:
             y -= 1
             try:
@@ -312,7 +312,7 @@ def game_start(screen,heroloc):
             close_screen = True
 
     curses.endwin()
-    if close_screen == True:
+    if close_screen is True:
         dead_guy("Dead_Screen")
 
 #Starting for testing purposes, not to be used during game
