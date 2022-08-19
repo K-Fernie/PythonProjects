@@ -1,13 +1,10 @@
-import curses
-from re import sub
-from globalInfo import stringResponses, getMap, dashObjectives, dashing
-from curses import wrapper
-from curses.textpad import Textbox, rectangle
-from operator import contains, truediv
-from travelAnimation import load_animation
-from Peasant import Peasant
-from PIL import Image
 import pickle
+from globalData import stringResponses, dashing, dashObjectives
+from PIL import Image
+
+
+def getMap(mapLocation):
+    return f'PythonPeasantQuest\images\{mapLocation}.png'
 
 def enter_is_terminate(x):
     if x == 10:
@@ -51,6 +48,7 @@ def getItem(subwin,txtwin,location,item):
             dashing.dress = True
         if "lantern" in dashing.inventory:
             dashing.fire = True
+        
 
     else: 
         response = "You can't get that, What do you do ??:"
@@ -78,6 +76,7 @@ def textInteract(subwin, txtwin, witty_response, location):
             subRefresh(subwin,txtwin,stringResponses["mapResponse"],location)
         else:
             subRefresh(subwin,txtwin,stringResponses["dontGotIt"],location)
+
     elif contRes == "inventory":
         inv = f"Inventory: {dashing.inventory}\nWhat do you do ??: "
         subRefresh(subwin,txtwin,inv,location)
@@ -94,7 +93,7 @@ def textInteract(subwin, txtwin, witty_response, location):
     elif contRes == "done":
         pass
     elif contRes == "save":
-        with open('peasant_data.pkl', 'wb') as outp:
+        with open('PythonPeasantQuest/peasant_data.pkl', 'wb') as outp:
             pickle.dump(dashing,outp,pickle.HIGHEST_PROTOCOL)
     else: 
         subRefresh(subwin,txtwin,stringResponses["jerkResponse"], location)
