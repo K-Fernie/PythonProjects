@@ -1,3 +1,7 @@
+"""
+Look most of the code is organized... this code doesn't have a home
+The code is necessary but needs a better home
+"""
 import json
 import copy
 from peasant_classes import Peasant, Objectives
