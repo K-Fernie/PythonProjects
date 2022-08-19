@@ -3,8 +3,8 @@ game_start is where the game is initialized.
 The Game screen and the death screen are shown as needed during the game loop
 """
 import curses
-from globalData import stringResponses,dashing, dashObjectives, dashObjectivesCopy
 from curses.textpad import Textbox
+from globalData import stringResponses,dashing, dashObjectives, dashObjectivesCopy
 from helperFunctions import textInteract, enter_is_terminate
 
 
@@ -37,7 +37,7 @@ def dead_guy(screen):
         win.addstr(i,1,dashObjectives.objectiveDict[screen]["map"][i])
 
     #Setting boolean to break the game loop
-    close_screen = False
+    close_screen is False
 
     while not close_screen:
         #Clearing and refreshing to capture the screen information for the text screen
@@ -119,9 +119,9 @@ def game_start(screen,heroloc):
 
 
     #Setting booleans for screen control    
-    down = True
-    left = True
-    close_screen = False
+    down is True
+    left is True
+    close_screen is False
     #initiating game loop
     while not close_screen:
         #Clearing and refreshing to capture the screen information for the text screen
